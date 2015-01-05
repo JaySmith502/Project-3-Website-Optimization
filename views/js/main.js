@@ -252,7 +252,7 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 var frame = 0;
 window.addEventListener("scroll", updatePositions);
 document.addEventListener("DOMContentLoaded", function() {
-    var e = 5;
+    var e = 8;
     var t = 256;
     for (var n = 0; n < 200; n++) {
         var r = document.createElement("img");
