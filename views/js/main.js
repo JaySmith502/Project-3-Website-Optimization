@@ -534,7 +534,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 }());
 function draw() {
   requestAnimationFrame(draw);
-    function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
@@ -542,7 +541,7 @@ function draw() {
   for (var i = 0; i < 33; i++) {
     var phase = Math.sin((action / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }}
+  }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
