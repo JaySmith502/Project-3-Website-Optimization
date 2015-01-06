@@ -95,10 +95,10 @@ function updatePositions() {
     frame++;
     var e = document.body.scrollTop;
     var a = document.querySelectorAll(".mover");
+    var n = Math.sin(e/1250);
     window.performance.mark("mark_start_frame");
     for (r = 0; r < 34; r++) {
-        var n = Math.sin(e / 1250 + r % 5);
-        a[r].style.left = a[r].basicLeft + 100 * n + "px"
+        a[r].style.left = a[r].basicLeft + 100 * (n + r % 5) + "px"
     }
     if (window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 === 0) {
         var i = window.performance.getEntriesByName("measure_frame_duration");
