@@ -96,8 +96,8 @@ function updatePositions() {
     var e = document.body.scrollTop;
     var a = document.querySelectorAll(".mover");
     window.performance.mark("mark_start_frame");
+    var n = Math.sin(e / 1250 + r % 5);
     for (r = 0; r < 34; r++) {
-        var n = Math.sin(e / 1250 + r % 5);
         a[r].style.left = a[r].basicLeft + 100 * n + "px"
     }
     if (window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 === 0) {
