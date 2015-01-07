@@ -278,6 +278,7 @@ function getNoun(y) {
   }; 
 };
 //appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
+
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var lengthAdj = adjectives.length;
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
@@ -455,7 +456,7 @@ var resizePizzas = function(size) {
     var dx = determineDx(randomPizzaContainers[0], size);
     var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
 
-    for (var i = 0, l = randomPizzaContainers.length; i < l; i++) {
+    for (var i = 0; i < l; i++) {
       randomPizzaContainers[i].style.width = newwidth;
     }
   }
