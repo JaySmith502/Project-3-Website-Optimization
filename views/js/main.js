@@ -506,11 +506,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 function updatePositions() {
   frame++;
-  var action = (document.body.scrollTop / 1250);
+  var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < 33; i++) {
-    var phase = Math.sin(action  + (i % 5);
+    var phase = Math.sin((action / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
