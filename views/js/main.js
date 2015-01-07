@@ -523,7 +523,7 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-}
+
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
