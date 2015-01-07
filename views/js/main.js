@@ -508,15 +508,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
-// took document.body.scrollTop out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
+// took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 
 function updatePositions() {
   frame++;
-  var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
+
   var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < 33; i++) {
--    var phase = Math.sin((action / 1250) + (i % 5));
+  //Move Calculation out of loop
+  var axMath = Math.sin(document.body.scrollTop / 1250);
+  for (var i = 0; i < items.length; i++) {
+    var phase =  axMath + (i % 5);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
