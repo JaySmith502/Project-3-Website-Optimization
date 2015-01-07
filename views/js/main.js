@@ -506,16 +506,26 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
 // took document.body.scrollTop out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 
+//function updatePositions() {
+//  frame++;
+//  var action = document.body.scrollTop;
+//  window.performance.mark("mark_start_frame");
+//  var items = document.querySelectorAll('.mover');
+//  for (var i = 0; i < 32; i++) {
+//    var phase = Math.sin((action / 1250) + (i % 5));
+//    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+//  }
 function updatePositions() {
-  frame++;
-  var action = document.body.scrollTop;
-  window.performance.mark("mark_start_frame");
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < 32; i++) {
-    var phase = Math.sin((action / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
-
+    frame++, window.performance.mark("mark_start_frame");
+    for (var e = document.querySelectorAll(".mover"), a = Math.sin(document.body.scrollTop / 1250), r = 0; r < e.length; r++) {
+        var n = a + r % 5;
+        e[r].style.transform = "translateX(" + 100 * n + "px)"
+    }
+    if (window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 === 0) {
+        var i = window.performance.getEntriesByName("measure_frame_duration");
+        logAverageFrame(i)
+    }
+}
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
