@@ -338,21 +338,26 @@ var makeRandomPizza = function() {
   var numberOfMeats = Math.floor((Math.random() * 4));
   var numberOfNonMeats = Math.floor((Math.random() * 3));
   var numberOfCheeses = Math.floor((Math.random() * 2));
+  var meat = ingredientItemizer(selectRandomMeat());
+  var NonMeat = ingredientItemizer(selectRandomNonMeat());
+  var cheese = ingredientItemizer(selectRandomCheese());
+  var sauce = ingredientItemizer(selectRandomSauce());
+  var crust = ingredientItemizer(selectRandomCrust());
 
   for (var i = 0; i < numberOfMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomMeat());
+    pizza = pizza + meat;
   }
 
   for (var i = 0; i < numberOfNonMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomNonMeat());
+    pizza = pizza + NonMeat;
   }
 
   for (var i = 0; i < numberOfCheeses; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomCheese());
+    pizza = pizza + cheese;
   }
 
-  pizza = pizza + ingredientItemizer(selectRandomSauce());
-  pizza = pizza + ingredientItemizer(selectRandomCrust());
+  pizza = pizza + sauce;
+  pizza = pizza + crust;
 
   return pizza;
 }
