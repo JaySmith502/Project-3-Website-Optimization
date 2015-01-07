@@ -295,7 +295,7 @@ function generator(adj, noun) {
 // Chooses random adjective and random noun
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj);
-  var randomNumberNoun = parseInt(Math.random() * lengthAdj);
+  var randomNumberNoun = parseInt(Math.random() * lengthNoun);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 };
 
@@ -506,14 +506,12 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 function updatePositions() {
   frame++;
+  var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
-
   var items = document.querySelectorAll('.mover');
-  //Move Calculation out of loop
-  var moveAmount = Math.sin(document.body.scrollTop / 1250);
-  for (var i = 0; i < items.length; i++) {
-    var phase =  moveAmount + (i % 5);
-    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
+  for (var i = 0; i < 32; i++) {
+    var phase = Math.sin((action / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -539,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.style.left = (i % cols) * s + 'px';
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
