@@ -543,9 +543,10 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
+
+  for (var i = 0; i < 200; i++) {
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-  for (var i = 0; i < 200; i++) {
     move.appendChild(elem);
   }
   updatePositions();
