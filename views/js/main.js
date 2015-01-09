@@ -403,26 +403,26 @@ var pizzaElementGenerator = function(i) {
 }
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-//var resizePizzas = function(size) { 
-  //window.performance.mark("mark_start_resize");   // User Timing API function
+var resizePizzas = function(size) { 
+  window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
   //took out document.querySelector command, didn't seem to negatively impact the js function on the page
-  //function changeSliderLabel(size) {
-  //  switch(size) {
-  //    case "1":
-   //     document.querySelector("#pizzaSize").innerHTML = "Small";
-   //     return;
-   //   case "2":
-   //     document.querySelector("#pizzaSize").innerHTML = "Medium";
-    //    return;
-   //   case "3":
-   //     document.querySelector("#pizzaSize").innerHTML = "Large";
-   //    return;
-    //  default:
-    //    console.log("bug in changeSliderLabel");
-  //  }
-  //}
+  function changeSliderLabel(size) {
+    switch(size) {
+      case "1":
+        document.querySelector("#pizzaSize").innerHTML = "Small";
+        return;
+      case "2":
+        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        return;
+      case "3":
+        document.querySelector("#pizzaSize").innerHTML = "Large";
+        return;
+      default:
+        console.log("bug in changeSliderLabel");
+    }
+  }
 
   //changeSliderLabel(size);
 
