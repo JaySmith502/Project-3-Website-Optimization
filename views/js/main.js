@@ -148,7 +148,7 @@ String.prototype.capitalize = function() {
 function getAdj(x){
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
+      "extinct", "galactic"];
   switch(x) {
     case "dark": 
       var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted", 
@@ -202,7 +202,7 @@ function getAdj(x){
       return scientific;
     default:
       return scientific;
-  };
+  }
 };
 
 // Pulls noun out of array using random number sent from generator
