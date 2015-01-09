@@ -424,7 +424,7 @@ var pizzaElementGenerator = function(i) {
   //  }
   //}
 
-  changeSliderLabel(size);
+  //changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
