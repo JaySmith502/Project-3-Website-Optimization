@@ -455,10 +455,11 @@ var resizePizzas = function(size) {
     var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
     
     // get dx and newwidth for 1st element only and then apply newwidth for the rest elements
+    // Removed randomPizzaContainers.length iteration from for loop
     var dx = determineDx(randomPizzaContainers[0], size);
     var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
-
-    for (var i = 0, l = randomPizzaContainers.length; i < l; i++) {
+    var length = randomPizzaContainers.length;
+    for (var i = 0; i < length; i++) {
       randomPizzaContainers[i].style.width = newwidth;
     }
   }
