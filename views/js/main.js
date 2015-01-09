@@ -145,6 +145,7 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
+// Removed extraneous scientific array from bottom of getAdj(x) and put variable in above switch(x) call
 function getAdj(x){
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
@@ -206,6 +207,7 @@ function getAdj(x){
 }
 
 // Pulls noun out of array using random number sent from generator
+// Removed extraneous scifi array from bottom of getAdj(x) and put variable in above switch(x) call
 function getNoun(y) {
       var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
       "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
