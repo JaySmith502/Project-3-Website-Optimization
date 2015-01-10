@@ -284,8 +284,8 @@ var lengthNoun = nouns.length;
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random()*lengthAdj);
-  var randomNoun = parseInt(Math.random() * lengthNoun);
+  var randomAdjective = parseInt(Math.random()*lengthAdj, 10);
+  var randomNoun = parseInt(Math.random() * lengthNoun, 10);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
 }
@@ -293,8 +293,8 @@ function generator(adj, noun) {
 // Chooses random adjective and random noun
 // Removed extraneous semicolon
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * lengthAdj);
-  var randomNumberNoun = parseInt(Math.random() * lengthNoun);
+  var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
+  var randomNumberNoun = parseInt(Math.random() * lengthNoun, 10);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
