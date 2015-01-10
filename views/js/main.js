@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var move = document.querySelector("#movingPizzas1");
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 33; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
