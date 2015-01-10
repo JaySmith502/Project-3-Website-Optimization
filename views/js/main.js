@@ -145,11 +145,10 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
-// Removed extraneous scientific array from bottom of getAdj(x) and put variable in above switch(x) call
 function getAdj(x){
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"];
+      "extinct", "galactic"]
   switch(x) {
     case "dark": 
       var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted", 
@@ -203,11 +202,10 @@ function getAdj(x){
       return scientific;
     default:
       return scientific;
-  }
-}
+  };
+};
 
 // Pulls noun out of array using random number sent from generator
-// Removed extraneous scifi array from bottom of getAdj(x) and put variable in above switch(x) call
 function getNoun(y) {
       var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
       "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
@@ -270,8 +268,8 @@ function getNoun(y) {
       return scifi;
     default:
       return scifi;
-  }
-}
+  }; 
+};
 //appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
@@ -280,7 +278,6 @@ var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "pl
 var lengthNoun = nouns.length;
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
-// Removed unnecessary semicolon
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
@@ -288,45 +285,44 @@ function generator(adj, noun) {
   var randomNoun = parseInt(Math.random() * lengthNoun);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
-}
+};
 
 // Chooses random adjective and random noun
-// Removed extraneous semicolon
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj);
   var randomNumberNoun = parseInt(Math.random() * lengthNoun);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
-}
+};
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
   var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
   return randomMeat;
-};
+}
 
 var selectRandomNonMeat = function() {
   var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
   return randomNonMeat;
-};
+}
 
 var selectRandomCheese = function() {
   var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
   return randomCheese;
-};
+}
 
 var selectRandomSauce = function() {
   var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
   return randomSauce;
-};
+}
 
 var selectRandomCrust = function() {
   var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
   return randomCrust;
-};
+}
 
 var ingredientItemizer = function(string) {
   return "<li>" + string + "</li>";
-};
+}
 
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function() {
@@ -357,7 +353,7 @@ var makeRandomPizza = function() {
   pizza = pizza + crust;
 
   return pizza;
-};
+}
 
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
@@ -397,7 +393,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.appendChild(pizzaDescriptionContainer);
 
   return pizzaContainer;
-};
+}
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
@@ -470,7 +466,7 @@ var resizePizzas = function(size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
-};
+}
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
