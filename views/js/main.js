@@ -345,11 +345,11 @@ var makeRandomPizza = function() {
     pizza = pizza + meat;
   }
 
-  for (var i = 0; i < numberOfNonMeats; i++) {
+  for (var j = 0; j < numberOfNonMeats; j++) {
     pizza = pizza + NonMeat;
   }
 
-  for (var i = 0; i < numberOfCheeses; i++) {
+  for (var k = 0; k < numberOfCheeses; k++) {
     pizza = pizza + cheese;
   }
 
