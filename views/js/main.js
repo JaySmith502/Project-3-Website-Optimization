@@ -294,6 +294,11 @@ function generator(adj, noun) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ // var randomAdjective = parseInt(Math.random()*lengthAdj);
+ // var randomNoun = parseInt(Math.random() * lengthNoun);
+>>>>>>> parent of 142e458... update main.js
 =======
  // var randomAdjective = parseInt(Math.random()*lengthAdj);
  // var randomNoun = parseInt(Math.random() * lengthNoun);
@@ -565,6 +570,7 @@ window.addEventListener('scroll', updatePositions);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //document.addEventListener('DOMContentLoaded', function() {
 //  var cols = 8;
 //  var s = 256;
@@ -588,6 +594,8 @@ function createSlidingPizzas() {
 }
 createSlidingPizzas();
 =======
+=======
+>>>>>>> parent of 142e458... update main.js
 =======
 >>>>>>> parent of 142e458... update main.js
 =======
