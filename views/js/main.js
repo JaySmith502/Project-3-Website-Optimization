@@ -418,6 +418,7 @@ var resizePizzas = function(size) {
         return;
       default:
         console.log("bug in changeSliderLabel");
+        break;
     }
   }
 
@@ -441,6 +442,7 @@ var resizePizzas = function(size) {
           return 0.5;
         default:
           console.log("bug in sizeSwitcher");
+        break;
       }
     }
 
