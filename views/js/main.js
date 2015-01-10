@@ -294,7 +294,7 @@ function generator(adj, noun) {
 // Removed extraneous semicolon
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
-  var randomNumberNoun = parseInt(Math.random() * lengthNoun, 10);
+  var randomNumberNoun = parseInt(Math.random() * lengthNoun,10);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
@@ -345,11 +345,11 @@ var makeRandomPizza = function() {
     pizza = pizza + meat;
   }
 
-  for (var j = 0; j < numberOfNonMeats; i++) {
+  for (var i = 0; i < numberOfNonMeats; i++) {
     pizza = pizza + NonMeat;
   }
 
-  for (var k = 0; k < numberOfCheeses; i++) {
+  for (var i = 0; i < numberOfCheeses; i++) {
     pizza = pizza + cheese;
   }
 
