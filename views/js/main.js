@@ -281,12 +281,13 @@ var lengthNoun = nouns.length;
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random()*lengthAdj);
-  var randomNoun = parseInt(Math.random() * lengthNoun);
+ // var randomAdjective = parseInt(Math.random()*lengthAdj);
+ // var randomNoun = parseInt(Math.random() * lengthNoun);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
 };
-
+  generator.prototype = randomAdjective=parseInt(Math.random()*lengthAdj);
+  generator.prototype = randomNoun = parseInt(Math.random()*lengthNoun)
 // Chooses random adjective and random noun
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj);
@@ -529,18 +530,20 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 //removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
+// that didn't work, asked instructors on piazza for some guidance
+// added .prototype to all elems--didn't work
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var move = document.querySelector("#movingPizzas1");   
-  var elem = document.createElement('img');
-  elem.prototype.className = 'mover';
-  elem.prototype.src = "images/pizza.png";
-  elem.prototype.style.height = "100px";
-  elem.prototype.style.width = "73.333px";
+
 
   for (var i = 0; i < 33; i++) {
-
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     move.appendChild(elem);
