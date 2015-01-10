@@ -528,17 +528,19 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+//removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var move = document.querySelector("#movingPizzas1");
+  var move = document.querySelector("#movingPizzas1");   
+  var elem = document.createElement('img');
+  elem.className = 'mover';
+  elem.src = "images/pizza.png";
+  elem.style.height = "100px";
+  elem.style.width = "73.333px";
 
-  for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
-    elem.className = 'mover';
-    elem.src = "images/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
+  for (var i = 0; i < 33; i++) {
+
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     move.appendChild(elem);
