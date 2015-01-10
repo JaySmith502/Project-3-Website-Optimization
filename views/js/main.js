@@ -457,9 +457,8 @@ var resizePizzas = function(size) {
     // get dx and newwidth for 1st element only and then apply newwidth for the rest elements
     var dx = determineDx(randomPizzaContainers[0], size);
     var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
-    var length = randomPizzaContainers.length;
 
-    for (var i = 0; i < length; i++) {
+    for (var i = 0, l = randomPizzaContainers.length; i < l; i++) {
       randomPizzaContainers[i].style.width = newwidth;
     }
   }
@@ -543,33 +542,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-
-//removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
-document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  var move = document.querySelector("#movingPizzas1");   
-  var elem = document.createElement('img');
-  elem.prototype.className = 'mover';
-  elem.prototype.src = "images/pizza.png";
-  elem.prototype.style.height = "100px";
-  elem.prototype.style.width = "73.333px";
-
-  for (var i = 0; i < 33; i++) {
-
-//removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
-document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  var move = document.querySelector("#movingPizzas1");   
-  var elem = document.createElement('img');
-  elem.prototype.className = 'mover';
-  elem.prototype.src = "images/pizza.png";
-  elem.prototype.style.height = "100px";
-  elem.prototype.style.width = "73.333px";
-
-  for (var i = 0; i < 33; i++) {
-
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     move.appendChild(elem);
