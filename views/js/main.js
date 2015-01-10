@@ -507,7 +507,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
 // took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 var items = document.querySelectorAll('.mover'), 
-latestKnownScrollY = 0,
 ticking = false;
 
 function onScroll() {
@@ -526,7 +525,7 @@ function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
-  for (var i = 0; i < 32; i++) {
+  for (var i = 0; i < 32; i++) 
     var phase = Math.sin((action / 1250) + (i % 5));
     items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
