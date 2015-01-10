@@ -506,7 +506,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Moves the sliding background pizzas based on scroll position
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
 // took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
-
+// Used translateX function found on piazza forums and in Google research
 function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
@@ -531,7 +531,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+function createStartPizzas() {
   var cols = 8;
   var s = 256;
   var move = document.querySelector("#movingPizzas1");
@@ -546,5 +546,13 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     move.appendChild(elem);
   }
-  updatePositions();
+//  updatePositions();
 });
+
+if (document.readystate != "loading") {
+  createStartPizzas();
+}
+else {
+  document.addEventListener("DOMContentLoaded", createStartPizzas());
+}
+
