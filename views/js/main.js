@@ -534,10 +534,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var move = document.querySelector("#movingPizzas1");   
   var elem = document.createElement('img');
-  elem.className = 'mover';
-  elem.src = "images/pizza.png";
-  elem.style.height = "100px";
-  elem.style.width = "73.333px";
+  elem.prototype.className = 'mover';
+  elem.prototype.src = "images/pizza.png";
+  elem.prototype.style.height = "100px";
+  elem.prototype.style.width = "73.333px";
 
   for (var i = 0; i < 33; i++) {
 
