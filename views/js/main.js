@@ -145,7 +145,11 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
+// Removed extraneous scientific array from bottom of getAdj(x) and put variable in above switch(x) call
 function getAdj(x){
+      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
+      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
+      "extinct", "galactic"];
   switch(x) {
     case "dark": 
       var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted", 
@@ -196,20 +200,19 @@ function getAdj(x){
       "majestic", "grand", "stunning"];
       return praise;
     case "scientific":
-      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
-      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
       return scientific;
     default:
-      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
-      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
       return scientific;
-  };
-};
+  }
+}
 
 // Pulls noun out of array using random number sent from generator
+// Removed extraneous scifi array from bottom of getAdj(x) and put variable in above switch(x) call
 function getNoun(y) {
+      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
+      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
+      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
+      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
   switch(y) {
     case "animals": 
       var animals = ["flamingo", "hedgehog", "owl", "elephant", "pussycat", "alligator", "dachsund", "poodle", "beagle", "crocodile", "kangaroo", 
@@ -264,38 +267,32 @@ function getNoun(y) {
       "shop", "store", "theater", "garden", "canyon", "highway", "restaurant", "cafe", "diner", "street", "road", "freeway", "alley"];
       return places;
     case "scifi":
-      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
-      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
     default:
-      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
-      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
-  }; 
-};
+  }
+}
+//appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var lengthAdj = adjectives.length;
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 var lengthNoun = nouns.length;
+
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random() * lengthAdj);
-  var randomNoun = parseInt(Math.random() * lengthNoun);
+  var randomAdjective = parseInt(Math.random()*lengthAdj, 10);
+  var randomNoun = parseInt(Math.random() * lengthNoun, 10);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
 };
 
 // Chooses random adjective and random noun
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * lengthAdj);
-  var randomNumberNoun = parseInt(Math.random() * lengthAdj);
+  var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
+  var randomNumberNoun = parseInt(Math.random() * lengthNoun,10);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 };
 
@@ -336,21 +333,27 @@ var makeRandomPizza = function() {
   var numberOfMeats = Math.floor((Math.random() * 4));
   var numberOfNonMeats = Math.floor((Math.random() * 3));
   var numberOfCheeses = Math.floor((Math.random() * 2));
+  var meat = ingredientItemizer(selectRandomMeat());
+  var NonMeat = ingredientItemizer(selectRandomNonMeat());
+  var cheese = ingredientItemizer(selectRandomCheese());
+  var sauce = ingredientItemizer(selectRandomSauce());
+  var crust = ingredientItemizer(selectRandomCrust());
 
   for (var i = 0; i < numberOfMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomMeat());
+    pizza = pizza + meat;
   }
 
-  for (var i = 0; i < numberOfNonMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomNonMeat());
+  for (var j = 0; j < numberOfNonMeats; j++) {
+    pizza = pizza + NonMeat;
   }
 
-  for (var i = 0; i < numberOfCheeses; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomCheese());
+  for (var k = 0; k < numberOfCheeses; k++) {
+    pizza = pizza + cheese;
   }
 
-  pizza = pizza + ingredientItemizer(selectRandomSauce());
-  pizza = pizza + ingredientItemizer(selectRandomCrust());
+
+  pizza = pizza + sauce;
+  pizza = pizza + crust;
 
   return pizza;
 }
@@ -451,10 +454,11 @@ var resizePizzas = function(size) {
     var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
     
     // get dx and newwidth for 1st element only and then apply newwidth for the rest elements
+    // Removed randomPizzaContainers.length iteration from for loop
     var dx = determineDx(randomPizzaContainers[0], size);
     var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
-
-    for (var i = 0, l = randomPizzaContainers.length; i < l; i++) {
+    var length = randomPizzaContainers.length;
+    for (var i = 0; i < length; i++) {
       randomPizzaContainers[i].style.width = newwidth;
     }
   }
@@ -471,9 +475,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -502,7 +505,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
-// took document.body.scrollTop out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
+// took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 
 function updatePositions() {
   frame++;
@@ -511,7 +514,7 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < 32; i++) {
     var phase = Math.sin((action / 1250) + (i % 5));
-    items[i].style.left = "translateX(" + 100 * phase + "px)";
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -531,15 +534,17 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var move = document.querySelector("#movingPizzas1");
+
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    move.appendChild(elem);
   }
   updatePositions();
 });
