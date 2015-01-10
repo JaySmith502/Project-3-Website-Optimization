@@ -291,6 +291,11 @@ function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ // var randomAdjective = parseInt(Math.random()*lengthAdj);
+ // var randomNoun = parseInt(Math.random() * lengthNoun);
+>>>>>>> parent of 142e458... update main.js
 =======
  // var randomAdjective = parseInt(Math.random()*lengthAdj);
  // var randomNoun = parseInt(Math.random() * lengthNoun);
@@ -547,6 +552,7 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 <<<<<<< HEAD
+<<<<<<< HEAD
 //document.addEventListener('DOMContentLoaded', function() {
 //  var cols = 8;
 //  var s = 256;
@@ -570,6 +576,8 @@ function createSlidingPizzas() {
 }
 createSlidingPizzas();
 =======
+=======
+>>>>>>> parent of 142e458... update main.js
 //removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
 // that didn't work, asked instructors on piazza for some guidance
 // added .prototype to all elems--didn't work
