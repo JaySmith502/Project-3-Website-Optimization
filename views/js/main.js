@@ -345,19 +345,11 @@ var makeRandomPizza = function() {
     pizza = pizza + meat;
   }
 
-<<<<<<< HEAD
   for (var j = 0; j < numberOfNonMeats; j++) {
     pizza = pizza + NonMeat;
   }
 
   for (var k = 0; k < numberOfCheeses; k++) {
-=======
-  for (var i = 0; i < numberOfNonMeats; i++) {
-    pizza = pizza + NonMeat;
-  }
-
-  for (var i = 0; i < numberOfCheeses; i++) {
->>>>>>> parent of 8ef0300... update main.js
     pizza = pizza + cheese;
   }
 
