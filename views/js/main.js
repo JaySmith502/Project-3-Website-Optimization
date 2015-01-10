@@ -145,14 +145,7 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
-// Removed extraneous scientific array from bottom of getAdj(x) and put variable in above switch(x) call
 function getAdj(x){
-<<<<<<< HEAD
-=======
-      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
-      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"];
->>>>>>> parent of b076e82... revert to yexterday
   switch(x) {
     case "dark": 
       var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted", 
@@ -212,11 +205,10 @@ function getAdj(x){
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
       "extinct", "galactic"]
       return scientific;
-  }
-}
+  };
+};
 
 // Pulls noun out of array using random number sent from generator
-// Removed extraneous scifi array from bottom of getAdj(x) and put variable in above switch(x) call
 function getNoun(y) {
   switch(y) {
     case "animals": 
@@ -283,99 +275,59 @@ function getNoun(y) {
       "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
       "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
-  }
-}
-//appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
+  }; 
+};
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var lengthAdj = adjectives.length;
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 var lengthNoun = nouns.length;
-var randomAdjective = parseInt(Math.random()*adjectives.length);
-var randomNoun = parseInt(Math.random() * nouns.length);
-
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
-// Removed unnecessary semicolon
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
-=======
- // var randomAdjective = parseInt(Math.random()*lengthAdj);
- // var randomNoun = parseInt(Math.random() * lengthNoun);
->>>>>>> parent of 142e458... update main.js
+  var randomAdjective = parseInt(Math.random() * lengthAdj);
+  var randomNoun = parseInt(Math.random() * lengthNoun);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
-<<<<<<< HEAD
 };
-  generator.prototype = randomAdjective=parseInt(Math.random()*lengthAdj);
-  generator.prototype = randomNoun = parseInt(Math.random()*lengthNoun)
-=======
-}
 
->>>>>>> parent of b076e82... revert to yexterday
 // Chooses random adjective and random noun
-// Removed extraneous semicolon
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj);
-  var randomNumberNoun = parseInt(Math.random() * lengthNoun);
+  var randomNumberNoun = parseInt(Math.random() * lengthAdj);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
-}
+};
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
   var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
   return randomMeat;
-};
+}
 
 var selectRandomNonMeat = function() {
   var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
   return randomNonMeat;
-};
+}
 
 var selectRandomCheese = function() {
   var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
   return randomCheese;
-};
+}
 
 var selectRandomSauce = function() {
   var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
   return randomSauce;
-};
+}
 
 var selectRandomCrust = function() {
   var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
   return randomCrust;
-};
+}
 
 var ingredientItemizer = function(string) {
   return "<li>" + string + "</li>";
-};
+}
 
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function() {
@@ -401,7 +353,7 @@ var makeRandomPizza = function() {
   pizza = pizza + ingredientItemizer(selectRandomCrust());
 
   return pizza;
-};
+}
 
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
@@ -441,7 +393,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.appendChild(pizzaDescriptionContainer);
 
   return pizzaContainer;
-};
+}
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
@@ -514,7 +466,7 @@ var resizePizzas = function(size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
-};
+}
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
@@ -552,26 +504,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
 // took document.body.scrollTop out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 
-//function updatePositions() {
-//  frame++;
-//  var action = document.body.scrollTop;
-//  window.performance.mark("mark_start_frame");
-//  var items = document.querySelectorAll('.mover');
-//  for (var i = 0; i < 32; i++) {
-//    var phase = Math.sin((action / 1250) + (i % 5));
-//    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-//  }
 function updatePositions() {
-    frame++, window.performance.mark("mark_start_frame");
-    for (var e = document.querySelectorAll(".mover"), a = Math.sin(document.body.scrollTop / 1250), r = 0; r < e.length; r++) {
-        var n = a + r % 5;
-        e[r].style.transform = "translateX(" + 100 * n + "px)"
-    }
-    if (window.performance.mark("mark_end_frame"), window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame"), frame % 10 === 0) {
-        var i = window.performance.getEntriesByName("measure_frame_duration");
-        logAverageFrame(i)
-    }
-}
+  frame++;
+  var action = document.body.scrollTop;
+  window.performance.mark("mark_start_frame");
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < 32; i++) {
+    var phase = Math.sin((action / 1250) + (i % 5));
+    items[i].style.left = 'translateX(' + 100 * phase + 'px');
+  }
+
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -586,64 +528,18 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-//document.addEventListener('DOMContentLoaded', function() {
-//  var cols = 8;
-//  var s = 256;
-//  for (var i = 0; i < 200; i++) {
-//    var elem = document.createElement('img');
-//    elem.className = 'mover';
-//    elem.src = "images/pizza.png";
-//    elem.style.height = "100px";
-//    elem.style.width = "73.333px";
-//    elem.basicLeft = (i % cols) * s;
-//    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-//    document.querySelector("#movingPizzas1").appendChild(elem);
-//  }
-//  updatePositions();
-//});
-function createSlidingPizzas() {
-    for (var e = 8, a = 256, r = document.querySelector("#movingPizzas1"), n = 0; 200 > n; n++) {
-        var i = document.createElement("img");
-        i.className = "mover", i.src = "images/pizza.png", i.style.height = "100px", i.style.width = "73.333px", i.style.left = n % e * a + "px", i.style.top = Math.floor(n / e) * a + "px", r.appendChild(i)
-    }
-}
-createSlidingPizzas();
-=======
-=======
->>>>>>> parent of 142e458... update main.js
-=======
->>>>>>> parent of 142e458... update main.js
-=======
->>>>>>> parent of 142e458... update main.js
-=======
->>>>>>> parent of 142e458... update main.js
-=======
->>>>>>> parent of 142e458... update main.js
-//removd 5 elem var calls from for loop to avoid calling it every time when it only needs once.
-// that didn't work, asked instructors on piazza for some guidance
-// added .prototype to all elems--didn't work
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var move = document.querySelector("#movingPizzas1");   
-
-
-  for (var i = 0; i < 33; i++) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.style.left = (i % cols) * s + 'px';
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    move.appendChild(elem);
+    document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
->>>>>>> parent of 142e458... update main.js
