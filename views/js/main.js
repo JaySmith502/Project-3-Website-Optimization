@@ -547,7 +547,7 @@ function createStartPizzas() {
     move.appendChild(elem);
   }
 //  updatePositions();
-});
+}
 
 if (document.readystate != "loading") {
   createStartPizzas();
