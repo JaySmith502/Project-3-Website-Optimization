@@ -510,7 +510,7 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < 32; i++) {
     var phase = Math.sin((action / 1250) + (i % 5));
-    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
+    items[i].style.transform = items[i].'translateX(' + (100 * phase) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
