@@ -327,6 +327,7 @@ var ingredientItemizer = function(string) {
 };
 
 // Returns a string with random pizza ingredients nested inside <li> tags
+// took ingredientItemizer math out of for loops
 var makeRandomPizza = function() {
   var pizza = "";
 
@@ -476,7 +477,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i < 16; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -535,7 +536,7 @@ function createStartPizzas() {
   var cols = 8;
   var s = 256;
   var move = document.querySelector("#movingPizzas1");
-
+// moved height and width to style tags on pizza.html, not needed to call from javascript
   for (var i = 0; i < 35; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
