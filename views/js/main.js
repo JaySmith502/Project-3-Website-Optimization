@@ -345,11 +345,19 @@ var makeRandomPizza = function() {
     pizza = pizza + meat;
   }
 
+<<<<<<< HEAD
   for (var j = 0; j < numberOfNonMeats; j++) {
     pizza = pizza + NonMeat;
   }
 
   for (var k = 0; k < numberOfCheeses; k++) {
+=======
+  for (var i = 0; i < numberOfNonMeats; i++) {
+    pizza = pizza + NonMeat;
+  }
+
+  for (var i = 0; i < numberOfCheeses; i++) {
+>>>>>>> parent of 8ef0300... update main.js
     pizza = pizza + cheese;
   }
 
@@ -418,7 +426,6 @@ var resizePizzas = function(size) {
         return;
       default:
         console.log("bug in changeSliderLabel");
-        break;
     }
   }
 
@@ -442,7 +449,6 @@ var resizePizzas = function(size) {
           return 0.5;
         default:
           console.log("bug in sizeSwitcher");
-        break;
       }
     }
 
@@ -539,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var move = document.querySelector("#movingPizzas1");
 
-  for (var i = 0; i < 33; i++) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
