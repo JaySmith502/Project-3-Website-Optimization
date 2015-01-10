@@ -12,13 +12,10 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
-// As you may have realized, this website randomly generates pZs.
-// Here are arrays of all possible pZ ingredients.
-
-//changed var pZIngredients to pI to begin minifying variable ns
-//changed var mts to m
-var pI = {};
-pI.m = [
+// As you may have realized, this website randomly generates pizzas.
+// Here are arrays of all possible pizza ingredients.
+var pizzaIngredients = {};
+pizzaIngredients.meats = [
   "Pepperoni",
   "Sausage",
   "Fennel Sausage",
@@ -55,8 +52,7 @@ pI.m = [
   "Scallops",
   "Filet Mignon"
 ];
-//changed nonmts to nm
-pI.nm = [
+pizzaIngredients.nonMeats = [
   "White Onions",
   "Red Onions",
   "Sauteed Onions",
@@ -97,64 +93,60 @@ pI.nm = [
   "Zucchini",
   "Hummus"
 ];
-// changed .cheses to c
-pI.c = [
-  "American ch",
-  "Swiss ch",
-  "Goat ch",
-  "Mozzarella ch",
-  "Parmesean ch",
-  "Velveeta ch",
-  "Gouda ch",
-  "Muenster ch",
-  "Applewood ch",
-  "Asiago ch",
-  "Bleu ch",
-  "Boursin ch",
-  "Brie ch",
-  "Cheddar ch",
-  "Chevre ch",
-  "Havarti ch",
-  "Jack ch",
-  "Pepper Jack ch",
-  "Gruyere ch",
-  "Limberger ch",
-  "Manchego ch",
-  "Marscapone ch",
-  "Pecorino ch",
-  "Provolone ch",
-  "Queso ch",
-  "Roquefort ch",
-  "Romano ch",
-  "Ricotta ch",
+pizzaIngredients.cheeses = [
+  "American Cheese",
+  "Swiss Cheese",
+  "Goat Cheese",
+  "Mozzarella Cheese",
+  "Parmesean Cheese",
+  "Velveeta Cheese",
+  "Gouda Cheese",
+  "Muenster Cheese",
+  "Applewood Cheese",
+  "Asiago Cheese",
+  "Bleu Cheese",
+  "Boursin Cheese",
+  "Brie Cheese",
+  "Cheddar Cheese",
+  "Chevre Cheese",
+  "Havarti Cheese",
+  "Jack Cheese",
+  "Pepper Jack Cheese",
+  "Gruyere Cheese",
+  "Limberger Cheese",
+  "Manchego Cheese",
+  "Marscapone Cheese",
+  "Pecorino Cheese",
+  "Provolone Cheese",
+  "Queso Cheese",
+  "Roquefort Cheese",
+  "Romano Cheese",
+  "Ricotta Cheese",
   "Smoked Gouda"
 ];
-//changed sauces to s
-pI.s = [
+pizzaIngredients.sauces = [
   "Red Sauce",
   "Marinara",
   "BBQ Sauce",
   "No Sauce",
   "Hot Sauce"
 ];
-// changed crusts to cr
-pI.cr = [
+pizzaIngredients.crusts = [
   "White Crust",
   "Whole Wheat Crust",
   "Flatbread Crust",
   "Stuffed Crust"
 ];
 
-// n generator pulled from http://saturdaykid.com/userns/generator.html
+// Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
 // Pulls adjective out of array using random number sent from generator
-// Removed extraneous scientific array from bottom of gA(x) and put variable in above switch(x) call
-// changed gA to gA
-function gA(x){
+// Removed extraneous scientific array from bottom of getAdj(x) and put variable in above switch(x) call
+function getAdj(x){
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
       "extinct", "galactic"];
@@ -215,9 +207,8 @@ function gA(x){
 }
 
 // Pulls noun out of array using random number sent from generator
-// Removed extraneous scifi array from bottom of gA(x) and put variable in above switch(x) call
-// changed getNoun to gN
-function gN(y) {
+// Removed extraneous scifi array from bottom of getAdj(x) and put variable in above switch(x) call
+function getNoun(y) {
       var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
       "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
       "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
@@ -268,7 +259,7 @@ function gN(y) {
     case "jewelry":
       var jewelry = ["earrings", "ring", "necklace", "pendant", "choker", "brooch", "bracelet", "cameo", "charm", "bauble", "trinket", "jewelry", 
       "anklet", "bangle", "locket", "finery", "crown", "tiara", "blingBling", "chain", "rosary", "jewel", "gemstone", "beads", "armband", "pin",
-      "costume", "ornnt", "treasure"];
+      "costume", "ornament", "treasure"];
       return jewelry;
     case "places":
       var places = ["swamp", "graveyard", "cemetery", "park", "building", "house", "river", "ocean", "sea", "field", "forest", "woods", "neighborhood",
@@ -281,168 +272,139 @@ function gN(y) {
       return scifi;
   }
 }
-//appears to be some redundancy between generator and rNM functions, going to try and pull out some of this code so it's not pulling every time.
-// changed adjectives to aJ
-// changed lengthAdj to lAj
-// changed nouns to nn
-// changed lengthNoun to lNn
+//appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
 
-var aJ = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of aJ for pZ titles
-var lAj = aJ.length;
-var nn = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nn for pZ titles
-var lNn = nn.length;
+var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+var lengthAdj = adjectives.length;
+var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
+var lengthNoun = nouns.length;
 
-// Generates random numbers for gA and gN functions and returns a new pZ n
-// changed randomAdjective to rAj
-// changed adj to a and noun to b in function call
-// changed randomNoun to rNn
-// changeed name to n
-// changed generator to gR
-function gR(a, b) {
-  var aJ = gA(a);
-  var nn = gN(b);
-  var rAj = parseInt(Math.random()*lAj, 10);
-  var rNn = parseInt(Math.random() * lNn, 10);
-  var n = "The " + aJ[rAj].capitalize() + " " + nn[rNn].capitalize();
-  return n;
+// Generates random numbers for getAdj and getNoun functions and returns a new pizza name
+function generator(adj, noun) {
+  var adjectives = getAdj(adj);
+  var nouns = getNoun(noun);
+  var randomAdjective = parseInt(Math.random()*lengthAdj, 10);
+  var randomNoun = parseInt(Math.random() * lengthNoun, 10);
+  var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
+  return name;
 };
 
 // Chooses random adjective and random noun
-// changed randomNumberAdj to rNaJ
-// changed randomName to rNM
-// changed randomNumberNoun to rNoN
-function rNM() {
-  var rNaJ = parseInt(Math.random() * lAj, 10);
-  var rNoN = parseInt(Math.random() * lNn, 10);
-  return gR(aJ[rNaJ], nn[rNoN]);
+function randomName() {
+  var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
+  var randomNumberNoun = parseInt(Math.random() * lengthNoun,10);
+  return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 };
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
-// changed selectRandommt to sRm
-// changed randommt to rMt
-var sRm = function() {
-  var rMt = pI.m[Math.floor((Math.random() * pI.m.length))];
-  return rMt;
-}
-// changed selectRandomnonmt to sRnM
-// changed randomNonmt to rMnT
-var sRnM = function() {
-  var rMnT = pI.nm[Math.floor((Math.random() * pI.nm.length))];
-  return rMnT;
-}
-// change selectrandomch to sRcH
-// change randomch to rCh
-var sRcH = function() {
-  var rCh = pI.c[Math.floor((Math.random() * pI.c.length))];
-  return rCh;
-}
-// change randomSauce to rS
-// change selectRandomSauce to sRs
-var sRs = function() {
-  var rS = pI.s[Math.floor((Math.random() * pI.s.length))];
-  return rS;
-}
-// changed selectRandomCrust to sRc
-// changed randomCrust to rC
-var sRc = function() {
-  var rC = pI.cr[Math.floor((Math.random() * pI.cr.length))];
-  return rC;
-}
-// changed ingredientItenizer to iI
-// changes string to b
-var iI = function(b) {
-  return "<li>" + b + "</li>";
+var selectRandomMeat = function() {
+  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
+  return randomMeat;
 }
 
-// Returns a string with random pZ ingredients nested inside <li> tags
-// changed var makeRandompZ to mRp
-// changed numberOfmts to nOm
-// changed numberOfNonmts to nOnM
-// changed numberOfchs to nOcH
-// changed all instances of meat to mt and nonMeat to nmt
-// changed all instancess of ch to ch
+var selectRandomNonMeat = function() {
+  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
+  return randomNonMeat;
+}
 
-// changed all instances of pizza to pZ
-var mRp = function() {
-  var pZ = "";
+var selectRandomCheese = function() {
+  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
+  return randomCheese;
+}
 
-  var nOm = Math.floor((Math.random() * 4));
-  var nOnM = Math.floor((Math.random() * 3));
-  var nOcH = Math.floor((Math.random() * 2));
-  var mt = iI(sRm());
-  var nmt = iI(sRnM());
-  var ch = iI(sRcH());
-  var sauce = iI(sRs());
-  var crust = iI(sRc());
+var selectRandomSauce = function() {
+  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
+  return randomSauce;
+}
 
-  for (var i = 0; i < nOm; i++) {
-    pZ = pZ + mt;
+var selectRandomCrust = function() {
+  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
+  return randomCrust;
+}
+
+var ingredientItemizer = function(string) {
+  return "<li>" + string + "</li>";
+}
+
+// Returns a string with random pizza ingredients nested inside <li> tags
+var makeRandomPizza = function() {
+  var pizza = "";
+
+  var numberOfMeats = Math.floor((Math.random() * 4));
+  var numberOfNonMeats = Math.floor((Math.random() * 3));
+  var numberOfCheeses = Math.floor((Math.random() * 2));
+  var meat = ingredientItemizer(selectRandomMeat());
+  var NonMeat = ingredientItemizer(selectRandomNonMeat());
+  var cheese = ingredientItemizer(selectRandomCheese());
+  var sauce = ingredientItemizer(selectRandomSauce());
+  var crust = ingredientItemizer(selectRandomCrust());
+
+  for (var i = 0; i < numberOfMeats; i++) {
+    pizza = pizza + meat;
   }
 
-  for (var j = 0; j < nOnM; j++) {
-    pZ = pZ + nmt;
+  for (var j = 0; j < numberOfNonMeats; j++) {
+    pizza = pizza + NonMeat;
   }
 
-  for (var k = 0; k < nOcH; k++) {
-    pZ = pZ + ch;
+  for (var k = 0; k < numberOfCheeses; k++) {
+    pizza = pizza + cheese;
   }
 
 
-  pZ = pZ + sauce;
-  pZ = pZ + crust;
+  pizza = pizza + sauce;
+  pizza = pizza + crust;
 
-  return pZ;
+  return pizza;
 }
 
-// returns a DOM element for each pZ
-// changed pizzaElementGenerator to pZeG
-// changed pizzaContainer to pZc
-var pZeG = function(i) {
-  var pZc,             // contains pZ title, image and list of ingredients
-      pZiC,        // contains the pZ image
-      pZi,                 // the pZ image itself
-      pZdC,  // contains the pZ title and list of ingredients
-      pZn,                  // the pZ n itself
+// returns a DOM element for each pizza
+var pizzaElementGenerator = function(i) {
+  var pizzaContainer,             // contains pizza title, image and list of ingredients
+      pizzaImageContainer,        // contains the pizza image
+      pizzaImage,                 // the pizza image itself
+      pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
+      pizzaName,                  // the pizza name itself
       ul;                         // the list of ingredients
 
-  pZc  = document.createElement("div");
-  pZiC = document.createElement("div");
-  pZi = document.createElement("img");
-  pZdC = document.createElement("div");
+  pizzaContainer  = document.createElement("div");
+  pizzaImageContainer = document.createElement("div");
+  pizzaImage = document.createElement("img");
+  pizzaDescriptionContainer = document.createElement("div");
 
-  pZc.classList.add("randompZc");
-  pZc.style.width = "33.33%";
-  pZc.style.height = "325px";
-  pZc.id = "pZ" + i;                // gives each pZ element a unique id
-  pZiC.classList.add("col-md-6");
+  pizzaContainer.classList.add("randomPizzaContainer");
+  pizzaContainer.style.width = "33.33%";
+  pizzaContainer.style.height = "325px";
+  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
+  pizzaImageContainer.classList.add("col-md-6");
 
-  pZi.src = "images/pZ.png";
-  pZi.classList.add("img-responsive");
-  pZiC.appendChild(pZi);
-  pZc.appendChild(pZiC);
+  pizzaImage.src = "images/pizza.png";
+  pizzaImage.classList.add("img-responsive");
+  pizzaImageContainer.appendChild(pizzaImage);
+  pizzaContainer.appendChild(pizzaImageContainer);
 
 
-  pZdC.classList.add("col-md-6");
+  pizzaDescriptionContainer.classList.add("col-md-6");
 
-  pZn = document.createElement("h4");
-  pZn.innerHTML = randomn();
-  pZdC.appendChild(pZn);
+  pizzaName = document.createElement("h4");
+  pizzaName.innerHTML = randomName();
+  pizzaDescriptionContainer.appendChild(pizzaName);
 
   ul = document.createElement("ul");
-  ul.innerHTML = mRp();
-  pZdC.appendChild(ul);
-  pZc.appendChild(pZdC);
+  ul.innerHTML = makeRandomPizza();
+  pizzaDescriptionContainer.appendChild(ul);
+  pizzaContainer.appendChild(pizzaDescriptionContainer);
 
-  return pZc;
+  return pizzaContainer;
 }
 
-// rPzS(size) is called when the slider in the "Our pZs" section of the website moves.
-var rPzS = function(size) { 
+// resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+var resizePizzas = function(size) { 
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  // Changes the value for the size of the pZ above the slider
+  // Changes the value for the size of the pizza above the slider
   //took out document.querySelector command, didn't seem to negatively impact the js function on the page
-  function cSl(size) {
+  function changeSliderLabel(size) {
     switch(size) {
       case "1":
         document.querySelector("#pizzaSize").innerHTML = "Small";
@@ -458,18 +420,17 @@ var rPzS = function(size) {
     }
   }
 
-  cSl(size);
+  changeSliderLabel(size);
 
-  // Returns the size difference to change a pZ element from one size to another. Called by changepZSlices(size).
-  function dDx (elem, size) {
-    var oW = elem.offsetWidth;
-    var wW = document.querySelector("#randomPizzas").offsetWidth;
-    var oS = oW / wW;
+  // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+  function determineDx (elem, size) {
+    var oldwidth = elem.offsetWidth;
+    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+    var oldsize = oldwidth / windowwidth;
 
     // TODO: change to 3 sizes? no more xl?
     // Changes the slider value to a percent width
-    // Changes sizeSlider var to sS
-    function sS (size) {
+    function sizeSwitcher (size) {
       switch(size) {
         case "1":
           return 0.25;
@@ -478,82 +439,82 @@ var rPzS = function(size) {
         case "3":
           return 0.5;
         default:
-          console.log("bug in sS");
+          console.log("bug in sizeSwitcher");
       }
     }
 
-    var nS = sS(size);
-    var dx = (nS - oS) * wW;
+    var newsize = sizeSwitcher(size);
+    var dx = (newsize - oldsize) * windowwidth;
 
     return dx;
   }
 
-    // Iterates through pZ elements on the page and changes their widths
-  function cPs(size) {
-    var rPzS = document.querySelectorAll(".randompZc");
+    // Iterates through pizza elements on the page and changes their widths
+  function changePizzaSizes(size) {
+    var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
     
-    // get dx and nW for 1st element only and then apply nW for the rest elements
-    // Removed rPzS.length iteration from for loop
-    var dx = dDx(rPzS[0], size);
-    var nW = (rPzS[0].offsetWidth + dx) + 'px';
-    var length = rPzS.length;
+    // get dx and newwidth for 1st element only and then apply newwidth for the rest elements
+    // Removed randomPizzaContainers.length iteration from for loop
+    var dx = determineDx(randomPizzaContainers[0], size);
+    var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
+    var length = randomPizzaContainers.length;
     for (var i = 0; i < length; i++) {
-      rPzS[i].style.width = nW;
+      randomPizzaContainers[i].style.width = newwidth;
     }
   }
 
-  cPs(size);
+  changePizzaSizes(size);
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
-  window.performance.measure("measure_pZ_resize", "mark_start_resize", "mark_end_resize");
-  var tTr = window.performance.getEntriesByn("measure_pZ_resize");
-  console.log("Time to resize pZs: " + tTr[0].duration + "ms");
+  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
+  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
+  console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 }
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
-// This for-loop actually creates and appends all of the pZs when the page loads
-var pZsD = document.getElementById("randompZs");
+// This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  pZsD.appendChild(pZeG(i));
+  pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
-// User Timing API again. These measurements tell you how long it took to generate the initial pZs
+// User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
-window.performance.measure("measure_pZ_generation", "mark_start_generating", "mark_end_generating");
-var tTg = window.performance.getEntriesByn("measure_pZ_generation");
-console.log("Time to generate pZs on load: " + tTg[0].duration + "ms");
+window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
+var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
+console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
 
-// Iterator for number of times the pZs in the background have scrolled.
-// Used by uP() to decide when to log the average time per frame
+// Iterator for number of times the pizzas in the background have scrolled.
+// Used by updatePositions() to decide when to log the average time per frame
 var frame = 0;
 
-// Logs the average amount of time per 10 frames needed to move the sliding background pZs on scroll.
-function lAf(times) {   // times is the array of User Timing measurements from uP()
-  var nE = times.length;
+// Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
+function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
+  var numberOfEntries = times.length;
   var sum = 0;
-  for (var i = nE - 1; i > nE - 11; i--) {
+  for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
     sum = sum + times[i].duration;
   }
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// The following code for sliding background pZs was pulled from Ilya's demo found at:
+// The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
-// Moves the sliding background pZs based on scroll position
-// updated for loop to remove extraneous e.length function and replaced with 40 max pZs for [i] since screen can only display 32
+// Moves the sliding background pizzas based on scroll position
+// updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
 // took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 
-function uP() {
+function updatePositions() {
   frame++;
-  var an = document.body.scrollTop;
+  var action = document.body.scrollTop;
   window.performance.mark("mark_start_frame");
-  var k = document.querySelectorAll('.mover');
+  var items = document.querySelectorAll('.mover');
   for (var i = 0; i < 32; i++) {
-    var p = Math.sin((an / 1250) + (i % 5));
-    k[i].style.transform = 'translateX(' + (100 * p) + 'px)';
+    var phase = Math.sin((action / 1250) + (i % 5));
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -561,29 +522,29 @@ function uP() {
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
   if (frame % 10 === 0) {
-    var tTp = window.performance.getEntriesByName("measure_frame_duration");
-    lAf(tTp);
+    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+    logAverageFrame(timesToUpdatePosition);
   }
 }
 
-// runs uP on scroll
-window.addEventListener('scroll', uP);
+// runs updatePositions on scroll
+window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pZs when the page loads.
+// Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var a = 8;
+  var cols = 8;
   var s = 256;
-  var m = document.querySelector("#movingPizzas1");
+  var move = document.querySelector("#movingPizzas1");
 
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
-    elem.classn = 'mover';
-    elem.src = "images/pZ.png";
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.style.left = (i % cols) * s + 'px';
-    elem.style.top = (Math.floor(i / a) * s) + 'px';
-    m.appendChild(elem);
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    move.appendChild(elem);
   }
-  uP();
+  updatePositions();
 });
