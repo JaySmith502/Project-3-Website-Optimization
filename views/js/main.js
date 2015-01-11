@@ -289,22 +289,21 @@ function getNoun(y) {
 // moved adjectives and length vars back into generator f(x) per info read on webreference.com about local vs global variables
 function generator(adj, noun) {
   var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
-  var lengthAdj = adjectives.length;
   var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
-  var lengthNoun = nouns.length;
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random()*lengthAdj, 10);
-  var randomNoun = parseInt(Math.random() * lengthNoun, 10);
+  var randomAdjective = parseInt(Math.random()* 9, 10);
+  var randomNoun = parseInt(Math.random() * 8, 10);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
 }
 
 // Chooses random adjective and random noun
 // added decimal 10 to parseInt per Google Developer Style requirement found in Audit of site
+// delete lengthAdj and lengthNoun as they no longer call variables that became local within generator(x)
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
-  var randomNumberNoun = parseInt(Math.random() * lengthNoun,10);
+  var randomNumberAdj = parseInt(Math.random() * 9, 10);
+  var randomNumberNoun = parseInt(Math.random() * 8 ,10);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
