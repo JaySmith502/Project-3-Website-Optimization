@@ -377,17 +377,17 @@ var makeRandomPizza = function() {
 // removed universal var names from top of function
 var pizzaElementGenerator = function(i) {
   var doc = document;
-  var pizzaContainer,             // contains pizza title, image and list of ingredients
-      pizzaImageContainer,        // contains the pizza image
-      pizzaImage,                 // the pizza image itself
-      pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
-      pizzaName,                  // the pizza name itself
-      ul;                         // the list of ingredients
+  //var pizzaContainer,             // contains pizza title, image and list of ingredients
+  //    pizzaImageContainer,        // contains the pizza image
+  //    pizzaImage,                 // the pizza image itself
+  //    pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
+  //    pizzaName,                  // the pizza name itself
+  //    ul;                         // the list of ingredients
 
-  pizzaContainer  = doc.createElement("div");
-  pizzaImageContainer = doc.createElement("div");
-  pizzaImage = doc.createElement("img");
-  pizzaDescriptionContainer = doc.createElement("div");
+  var pizzaContainer  = doc.createElement("div");
+  var pizzaImageContainer = doc.createElement("div");
+  var pizzaImage = doc.createElement("img");
+  var pizzaDescriptionContainer = doc.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
   pizzaContainer.style.width = "33.33%";
@@ -403,11 +403,11 @@ var pizzaElementGenerator = function(i) {
 
   pizzaDescriptionContainer.classList.add("col-md-6");
 
-  pizzaName = doc.createElement("h4");
+  var pizzaName = doc.createElement("h4");
   pizzaName.innerHTML = randomName();
   pizzaDescriptionContainer.appendChild(pizzaName);
 
-  ul = doc.createElement("ul");
+  var ul = doc.createElement("ul");
   ul.innerHTML = makeRandomPizza();
   pizzaDescriptionContainer.appendChild(ul);
   pizzaContainer.appendChild(pizzaDescriptionContainer);
