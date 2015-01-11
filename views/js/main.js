@@ -374,8 +374,9 @@ var makeRandomPizza = function() {
 
 // returns a DOM element for each pizza
 // added local variable doc, per info found on webreference.com
+// removed universal var names from top of function
 var pizzaElementGenerator = function(i) {
-  var doc = document
+  var doc = document;
   var pizzaContainer,             // contains pizza title, image and list of ingredients
       pizzaImageContainer,        // contains the pizza image
       pizzaImage,                 // the pizza image itself
