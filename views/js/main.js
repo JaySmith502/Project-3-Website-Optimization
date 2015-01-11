@@ -432,11 +432,11 @@ var resizePizzas = function(size) {
   function sizeSwitcher (size) {
     switch(size) {
       case "1":
-        return .25;
+        return 25;
       case "2":
-        return .3333;
+        return 33.33;
       case "3":
-        return .50;
+        return 50;
        default:
         console.log("bug in sizeSwitcher");
      }
@@ -445,9 +445,9 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var pizza;
-    var newSize = sizeSwitcher(size) + "px";
+    var newSize = sizeSwitcher(size) + "%";
     console.log(pizzaStandardWidth);
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
+    for (var i = 0; i < randomPizzaContainerLength; i++) {
       pizza = document.querySelectorAll(".randomPizzaContainer")[i];
       pizza.style.width = newSize;
     }
