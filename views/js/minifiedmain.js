@@ -546,5 +546,3 @@ if (document.readystate != "loading") {
 else {
   document.addEventListener("DOMContentLoaded", createStartPizzas());
 }
-
-
