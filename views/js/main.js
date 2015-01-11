@@ -373,7 +373,9 @@ var makeRandomPizza = function() {
 };
 
 // returns a DOM element for each pizza
+// added local variable doc, per info found on webreference.com
 var pizzaElementGenerator = function(i) {
+  var doc = document
   var pizzaContainer,             // contains pizza title, image and list of ingredients
       pizzaImageContainer,        // contains the pizza image
       pizzaImage,                 // the pizza image itself
@@ -381,10 +383,10 @@ var pizzaElementGenerator = function(i) {
       pizzaName,                  // the pizza name itself
       ul;                         // the list of ingredients
 
-  pizzaContainer  = document.createElement("div");
-  pizzaImageContainer = document.createElement("div");
-  pizzaImage = document.createElement("img");
-  pizzaDescriptionContainer = document.createElement("div");
+  pizzaContainer  = doc.createElement("div");
+  pizzaImageContainer = doc.createElement("div");
+  pizzaImage = doc.createElement("img");
+  pizzaDescriptionContainer = doc.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
   pizzaContainer.style.width = "33.33%";
@@ -400,11 +402,11 @@ var pizzaElementGenerator = function(i) {
 
   pizzaDescriptionContainer.classList.add("col-md-6");
 
-  pizzaName = document.createElement("h4");
+  pizzaName = doc.createElement("h4");
   pizzaName.innerHTML = randomName();
   pizzaDescriptionContainer.appendChild(pizzaName);
 
-  ul = document.createElement("ul");
+  ul = doc.createElement("ul");
   ul.innerHTML = makeRandomPizza();
   pizzaDescriptionContainer.appendChild(ul);
   pizzaContainer.appendChild(pizzaDescriptionContainer);
