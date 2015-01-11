@@ -324,7 +324,6 @@ var ingredientItemizer = function(string) {
 }
 
 // Returns a string with random pizza ingredients nested inside <li> tags
-// changed nonMeats var to j and Cheeses to k per proper code writeup style on Google
 var makeRandomPizza = function() {
   var pizza = "";
 
@@ -336,11 +335,11 @@ var makeRandomPizza = function() {
     pizza = pizza + ingredientItemizer(selectRandomMeat());
   }
 
-  for (var j = 0; j < numberOfNonMeats; j++) {
+  for (var i = 0; i < numberOfNonMeats; i++) {
     pizza = pizza + ingredientItemizer(selectRandomNonMeat());
   }
 
-  for (var k = 0; k < numberOfCheeses; k++) {
+  for (var i = 0; i < numberOfCheeses; i++) {
     pizza = pizza + ingredientItemizer(selectRandomCheese());
   }
 

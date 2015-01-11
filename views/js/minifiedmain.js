@@ -54,9 +54,6 @@ pizzaIngredients.meats = [
   "Scallops",
   "Filet Mignon"
 ];
-// add a var for meats.length
-var meatsLength = pizzaIngredients.meats.length;
-
 pizzaIngredients.nonMeats = [
   "White Onions",
   "Red Onions",
@@ -98,9 +95,6 @@ pizzaIngredients.nonMeats = [
   "Zucchini",
   "Hummus"
 ];
-// add a var for nonMeats.length
-var nonMeatsLength = pizzaIngredients.nonMeats.length;
-
 pizzaIngredients.cheeses = [
   "American Cheese",
   "Swiss Cheese",
@@ -132,8 +126,6 @@ pizzaIngredients.cheeses = [
   "Ricotta Cheese",
   "Smoked Gouda"
 ];
-// add a var for cheeses.length
-var cheesesLength = pizzaIngredients.cheeses.length;
 pizzaIngredients.sauces = [
   "Red Sauce",
   "Marinara",
@@ -283,7 +275,6 @@ function getNoun(y) {
   }
 }
 //appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
-// pull out adjectives.length and nouns.length from generator f(x)
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var lengthAdj = adjectives.length;
@@ -291,7 +282,6 @@ var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "pl
 var lengthNoun = nouns.length;
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
-// add decimal value to parseInt due to research into correct code, using this function should have a Math call as well as a number value to determine decimal placement
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
@@ -310,27 +300,27 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * meatsLength))];
+  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
   return randomMeat;
 };
 
 var selectRandomNonMeat = function() {
-  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * nonMeatsLength))];
+  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
   return randomNonMeat;
 };
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * cheesesLength))];
+  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
   return randomCheese;
 };
 
 var selectRandomSauce = function() {
-  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
+  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
   return randomSauce;
 };
 
 var selectRandomCrust = function() {
-  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
+  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
   return randomCrust;
 };
 
@@ -340,7 +330,6 @@ var ingredientItemizer = function(string) {
 
 // Returns a string with random pizza ingredients nested inside <li> tags
 // took ingredientItemizer math out of for loops
-// changed [i] in numberOfNonMeats and numberOfCheeses to [j] and [k] for more appropriate code style.
 var makeRandomPizza = function() {
   var pizza = "";
 
