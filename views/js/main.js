@@ -142,9 +142,9 @@ pizzaIngredients.crusts = [
 ];
 
 // took .length calls out of topping variables to reduce callbacks
-var meatsL = pizzaIngredients.meats.length;
-var nMeatsL = pizzaIngredients.nonMeats.length;
-var cheesesL = pizzaIngredients.cheeses.length;
+//var meatsL = pizzaIngredients.meats.length;
+//var nMeatsL = pizzaIngredients.nonMeats.length;
+//var cheesesL = pizzaIngredients.cheeses.length;
 
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
@@ -311,17 +311,17 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * meatsL))];
+  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * 35))];
   return randomMeat;
 };
 
 var selectRandomNonMeat = function() {
-  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * nMeatsL))];
+  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
   return randomNonMeat;
 };
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * cheesesL))];
+  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];
   return randomCheese;
 };
 // replaced sauces.length with 5, pretty easy count
