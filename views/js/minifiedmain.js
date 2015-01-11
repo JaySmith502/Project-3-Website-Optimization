@@ -440,7 +440,8 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function sizeSwitcher (size) {
+  // removed determineDx functionality out, not necessary due to use of sizeSwitch, lost a complete function callback, as found on Piazza and JSLint
+  function sizeSwitch (size) {
     switch(size) {
       case "1":
         return 25;
@@ -459,7 +460,7 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
-    var newSize = sizeSwitcher(size) + "%";
+    var newSize = sizeSwitch(size) + "%";
     console.log(pizzaStandardWidth);
     for (var i = 0; i < 101; i++) {
       pizza[i].style.width = newSize;
@@ -506,8 +507,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-// updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
-// took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
+// updated for loop to remove extraneous e.length function and replaced with 32 max pizzas for [i] since screen can only display 32
+// took (document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 // Used translateX function found on piazza forums and in Google research
 function updatePositions() {
   frame++;
