@@ -401,7 +401,7 @@ var pizzaElementGenerator = function(i) {
 
 //take these DOM callbacks out of the changePizzaSizes function
 
-var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+
 var pizzaStandardWidth = randomPizzaContainer[0].style.width;
 var randomPizzaContainerLength = randomPizzaContainer.length;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
