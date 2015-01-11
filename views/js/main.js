@@ -283,14 +283,15 @@ function getNoun(y) {
 //appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
 // removed adjectives.length and nouns.length from generator f(x) to reduce circular computations
 
-var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
-var lengthAdj = adjectives.length;
-var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
-var lengthNoun = nouns.length;
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 // added decimal 10 to parseInt per Google Developer Style requirement found in Audit of site
+// moved adjectives and length vars back into generator f(x) per info read on webreference.com about local vs global variables
 function generator(adj, noun) {
+  var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+  var lengthAdj = adjectives.length;
+  var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
+  var lengthNoun = nouns.length;
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
   var randomAdjective = parseInt(Math.random()*lengthAdj, 10);
