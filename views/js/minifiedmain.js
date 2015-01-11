@@ -1,4 +1,5 @@
-//HOLD THIS CODE 01/11/15
+//HOLD THIS CODE 01/11/15 9AM
+//HOLD THIS CODE 01/11/15 2PM
 
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
@@ -454,6 +455,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
+  // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
   function changePizzaSizes(size) {
     var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
