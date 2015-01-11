@@ -399,6 +399,11 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 };
 
+//take these DOM callbacks out of the changePizzaSizes function
+
+var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+var pizzaStandardWidth = randomPizzaContainer[0].style.width;
+var randomPizzaContainerLength = randomPizzaContainer.length;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
   window.performance.mark("mark_start_resize");   // User Timing API function
@@ -424,48 +429,31 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldsize = oldwidth / windowwidth;
-
-    // TODO: change to 3 sizes? no more xl?
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-    }
-
-    var newsize = sizeSwitcher(size);
-    var dx = (newsize - oldsize) * windowwidth;
-
-    return dx;
+  function sizeSwitcher (size) {
+    switch(size) {
+      case "1":
+        return 25;
+      case "2":
+        return 33.33;
+      case "3":
+        return 50;
+       default:
+        console.log("bug in sizeSwitcher");
+     }
   }
 
-    // Iterates through pizza elements on the page and changes their widths
+  // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
-    
-    // get dx and newwidth for 1st element only and then apply newwidth for the rest elements
-    // Removed randomPizzaContainers.length iteration from for loop
-    var dx = determineDx(randomPizzaContainers[0], size);
-    var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
-    var length = randomPizzaContainers.length;
-    for (var i = 0; i < length; i++) {
-      randomPizzaContainers[i].style.width = newwidth;
+    var pizza;
+    var newSize = sizeSwitcher(size) + "%";
+    console.log(pizzaStandardWidth);
+    for (var i = 0; i < randomPizzaContainerLength; i++) {
+      pizza = document.querySelectorAll(".randomPizzaContainer")[i];
+      pizza.style.width = newSize;
     }
   }
 
   changePizzaSizes(size);
-
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
