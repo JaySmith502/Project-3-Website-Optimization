@@ -443,13 +443,14 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  // move document.querySelectorAll(".randomPizzaContainer") outside of for loop, just to see.  need to add [i] to pizza.style.width
   function changePizzaSizes(size) {
-    var pizza;
+    var pizza = document.querySelectorAll(".randomPizzaContainer");
     var newSize = sizeSwitcher(size) + "%";
     console.log(pizzaStandardWidth);
     for (var i = 0; i < randomPizzaContainerLength; i++) {
-      pizza = document.querySelectorAll(".randomPizzaContainer")[i];
-      pizza.style.width = newSize;
+//      pizza = document.querySelectorAll(".randomPizzaContainer")[i];
+      pizza[i].style.width = newSize;
     }
   }
 
