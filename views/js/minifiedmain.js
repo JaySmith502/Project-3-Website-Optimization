@@ -349,7 +349,7 @@ var makeRandomPizza = function() {
   var cheese = ingredientItemizer(selectRandomCheese());
   var sauce = ingredientItemizer(selectRandomSauce());
   var crust = ingredientItemizer(selectRandomCrust());
-
+// replaced [i] in second and third for loops per Google Developer Style guide
   for (var i = 0; i < numberOfMeats; i++) {
     pizza = pizza + meat;
   }
@@ -458,7 +458,7 @@ var resizePizzas = function(size) {
     var pizzaLength = pizza.length;
     var newSize = sizeSwitcher(size) + "%";
     console.log(pizzaStandardWidth);
-    for (var i = 0; i < pizzaLength; i++) {
+    for (var i = 0; i < 101; i++) {
       pizza[i].style.width = newSize;
     }
   }
