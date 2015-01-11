@@ -428,8 +428,7 @@ var resizePizzas = function(size) {
   var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
   var pizzaStandardWidth = randomPizzaContainer[0].style.width;
   var randomPizzaContainerLength = randomPizzaContainer.length;
-  var dx = determineDx(randomPizzaContainers[0], size);
-  var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
+
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function sizeSwitcher (size) {
@@ -460,6 +459,11 @@ var resizePizzas = function(size) {
       pizza.style.width = newSize;
     }
   }
+    var dx = determineDx(randomPizzaContainers[0], size);
+    var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
+
+    for (var i = 0; i < l00; i++) {
+      randomPizzaContainers[i].style.width = newwidth;
 
   changePizzaSizes(size);
   // User Timing API is awesome
