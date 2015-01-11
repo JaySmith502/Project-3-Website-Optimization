@@ -1,3 +1,6 @@
+//HOLD THIS CODE 01/11/15 9AM
+//HOLD THIS CODE 01/11/15 2PM
+
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
@@ -138,6 +141,11 @@ pizzaIngredients.crusts = [
   "Stuffed Crust"
 ];
 
+// took .length calls out of topping variables to reduce callbacks
+var meatsL = pizzaIngredients.meats.length;
+var nMeatsL = pizzaIngredients.nonMeats.length;
+var cheesesL = pizzaIngredients.cheeses.length;
+
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
@@ -273,6 +281,7 @@ function getNoun(y) {
   }
 }
 //appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
+// removed adjectives.length and nouns.length from generator f(x) to reduce circular computations
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var lengthAdj = adjectives.length;
@@ -280,6 +289,7 @@ var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "pl
 var lengthNoun = nouns.length;
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
+// added decimal 10 to parseInt per Google Developer Style requirement found in Audit of site
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
@@ -290,6 +300,7 @@ function generator(adj, noun) {
 }
 
 // Chooses random adjective and random noun
+// added decimal 10 to parseInt per Google Developer Style requirement found in Audit of site
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * lengthAdj, 10);
   var randomNumberNoun = parseInt(Math.random() * lengthNoun,10);
@@ -298,27 +309,27 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
+  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * meatsL))];
   return randomMeat;
 };
 
 var selectRandomNonMeat = function() {
-  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
+  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * nMeatsL))];
   return randomNonMeat;
 };
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
+  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * cheesesL))];
   return randomCheese;
 };
-
+// replaced sauces.length with 5, pretty easy count
 var selectRandomSauce = function() {
-  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
+  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
   return randomSauce;
 };
-
+//replaced crusts.length with 4
 var selectRandomCrust = function() {
-  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
+  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
   return randomCrust;
 };
 
@@ -339,7 +350,7 @@ var makeRandomPizza = function() {
   var cheese = ingredientItemizer(selectRandomCheese());
   var sauce = ingredientItemizer(selectRandomSauce());
   var crust = ingredientItemizer(selectRandomCrust());
-
+// replaced [i] in second and third for loops per Google Developer Style guide
   for (var i = 0; i < numberOfMeats; i++) {
     pizza = pizza + meat;
   }
@@ -429,7 +440,8 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function sizeSwitcher (size) {
+  // removed determineDx functionality out, not necessary due to use of sizeSwitch, lost a complete function callback, as found on Piazza and JSLint
+  function sizeSwitch (size) {
     switch(size) {
       case "1":
         return 25;
@@ -443,13 +455,14 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  // move document.querySelectorAll(".randomPizzaContainer") outside of for loop, just to see.  need to add [i] to pizza.style.width
+  // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
+  // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
   function changePizzaSizes(size) {
     var pizza = document.querySelectorAll(".randomPizzaContainer");
-    var newSize = sizeSwitcher(size) + "%";
+    //var pizzaLength = pizza.length;
+    var newSize = sizeSwitch(size) + "%";
     console.log(pizzaStandardWidth);
-    for (var i = 0; i < randomPizzaContainerLength; i++) {
-//      pizza = document.querySelectorAll(".randomPizzaContainer")[i];
+    for (var i = 0; i < 101; i++) {
       pizza[i].style.width = newSize;
     }
   }
@@ -494,8 +507,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-// updated for loop to remove extraneous e.length function and replaced with 40 max pizzas for [i] since screen can only display 32
-// took Math.sin(document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
+// updated for loop to remove extraneous e.length function and replaced with 32 max pizzas for [i] since screen can only display 32
+// took (document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 // Used translateX function found on piazza forums and in Google research
 function updatePositions() {
   frame++;
@@ -545,5 +558,3 @@ if (document.readystate != "loading") {
 else {
   document.addEventListener("DOMContentLoaded", createStartPizzas());
 }
-
-
