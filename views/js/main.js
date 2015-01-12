@@ -427,8 +427,8 @@ var resizePizzas = function(size) {
   // Changes the value for the size of the pizza above the slider
   //took out document.querySelector command, didn't seem to negatively impact the js function on the page
   function changeSliderLabel(size) {
+    var docs = document;
     switch(size) {
-      var docs = document;
       case "1":
         doc.querySelector("#pizzaSize").innerHTML = "Small";
         return;
