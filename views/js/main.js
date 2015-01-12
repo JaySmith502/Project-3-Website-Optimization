@@ -462,25 +462,13 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
   // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
-/*  function changePizzaSizes(size) {
+  function changePizzaSizes(size) {
     var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
     var newSize = sizeSwitch(size) + "%";
     console.log(pizzaStandardWidth);
     for (var i = 0; i < 101; i++) {
       pizza[i].style.width = newSize;
-    }
-  }
-*/
-// reverted to original changePizzaSizes to see if change
-    // Iterates through pizza elements on the page and changes their widths
-    // seems to work better for FPS, although still around 40, needs a little more work
-  function changePizzaSizes(size) {
-    var doc = document;
-    for (var i = 0; i < doc.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(doc.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newSize = (doc.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + '%';
-      doc.querySelectorAll(".randomPizzaContainer")[i].style.width = newSize;
     }
   }
 
