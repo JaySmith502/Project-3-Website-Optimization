@@ -280,8 +280,8 @@ function getNoun(y) {
       return scifi;
   }
 }
-//appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.
-// removed adjectives.length and nouns.length from generator f(x) to reduce circular computations
+//appears to be some redundancy between generator and randomName functions, going to try and pull out some of this code so it's not pulling every time.--REVERTED THIS
+// removed adjectives.length and nouns.length from generator f(x) to reduce circular computations--REVERTED THIS
 
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
@@ -310,29 +310,35 @@ function randomName() {
 }
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
+// seems var calls are unnecessary just to follow right up with return of variable call
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * 35))];
-  return randomMeat;
+  return pizzaIngredients.meats[Math.floor((Math.random() * 35))];
+  //var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * 35))];
+  //return randomMeat;
 };
 
 var selectRandomNonMeat = function() {
-  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
-  return randomNonMeat;
+  return pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
+  //var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
+  //return randomNonMeat;
 };
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];
-  return randomCheese;
+  return pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];  
+  //var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];
+  //return randomCheese;
 };
 // replaced sauces.length with 5, pretty easy count
 var selectRandomSauce = function() {
-  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
-  return randomSauce;
+  return pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
+  //var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
+  //return randomSauce;
 };
 //replaced crusts.length with 4
 var selectRandomCrust = function() {
-  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
-  return randomCrust;
+  return pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
+  //var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
+  //return randomCrust;
 };
 
 var ingredientItemizer = function(string) {
@@ -464,6 +470,7 @@ var resizePizzas = function(size) {
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
   // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
   function changePizzaSizes(size) {
+    
     var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
     var newSize = sizeSwitch(size) + "%";
