@@ -437,13 +437,13 @@ var resizePizzas = function(size) {
         var docs = document.querySelector("#pizzaSize").innerHTML;
       case "1":
         docs = "Small";
-        return;
+        break;
       case "2":
         docs = "Medium";
-        return;
+        break;
       case "3":
         docs = "Large";
-        return;
+        break;
       default:
         console.log("bug in changeSliderLabel");
     }
