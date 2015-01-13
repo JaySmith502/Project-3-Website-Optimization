@@ -348,7 +348,7 @@ var ingredientItemizer = function(string) {
 // Returns a string with random pizza ingredients nested inside <li> tags
 // took ingredientItemizer math out of for loops
 var makeRandomPizza = function() {
-  var pizza = "", i, j, k;
+  var pizza = "";
 
   var numberOfMeats = Math.floor((Math.random() * 4));
   var numberOfNonMeats = Math.floor((Math.random() * 3));
@@ -359,15 +359,15 @@ var makeRandomPizza = function() {
   var sauce = ingredientItemizer(selectRandomSauce());
   var crust = ingredientItemizer(selectRandomCrust());
 // replaced [i] in second and third for loops per Google Developer Style guide
-  for (i = 0; i < numberOfMeats; i++) {
+  for (var i = 0; i < numberOfMeats; i++) {
     pizza = pizza + meat;
   }
 
-  for (j = 0; j < numberOfNonMeats; j++) {
+  for (var j = 0; j < numberOfNonMeats; j++) {
     pizza = pizza + NonMeat;
   }
 
-  for (k = 0; k < numberOfCheeses; k++) {
+  for (var k = 0; k < numberOfCheeses; k++) {
     pizza = pizza + cheese;
   }
 
