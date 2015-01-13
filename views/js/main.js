@@ -469,7 +469,6 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
   // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
-  // took + "%" out of changePizzaSizes f(x) and changed cases in sizeSwitch into percentage strings, not sure how this will turn out, but seems bad loop to refer back twice
   function changePizzaSizes(size) {
     
     var pizza = document.querySelectorAll(".randomPizzaContainer");
