@@ -433,17 +433,17 @@ var resizePizzas = function(size) {
   // Changes the value for the size of the pizza above the slider
   // created local variable for document.querySelector(#pizzaSize).innerHTML;
   function changeSliderLabel(size) {
+    var docs = document.querySelector("#pizzaSize").innerHTML;
     switch(size) {
-        var docs = document.querySelector("#pizzaSize").innerHTML;
       case "1":
-        docs = "Small";
-        break;
+        /*docs.querySelector("#pizzaSize").innerHTML*/docs = "Small";
+        return;
       case "2":
-        docs = "Medium";
-        break;
+        /*docs.querySelector("#pizzaSize").innerHTML*/docs = "Medium";
+        return;
       case "3":
-        docs = "Large";
-        break;
+        /*docs.querySelector("#pizzaSize").innerHTML*/docs = "Large";
+        return;
       default:
         console.log("bug in changeSliderLabel");
     }
@@ -572,3 +572,4 @@ if (document.readystate != "loading") {
 else {
   document.addEventListener("DOMContentLoaded", createStartPizzas());
 }
+
