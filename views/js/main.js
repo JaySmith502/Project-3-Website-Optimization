@@ -286,6 +286,7 @@ function getNoun(y) {
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 // added decimal 10 to parseInt per Google Developer Style requirement found in Audit of site
+// take out var name and return "The" string concatenation
 
   var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
   var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
@@ -296,8 +297,8 @@ function generator(adj, noun) {
   var nouns = getNoun(noun);
   var randomAdjective = parseInt(Math.random()* 9, 10);
   var randomNoun = parseInt(Math.random() * 8, 10);
-  var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
-  return name;
+  return = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
+  //return name;
 }
 
 // Chooses random adjective and random noun
