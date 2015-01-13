@@ -436,8 +436,8 @@ var resizePizzas = function(size) {
     var docs = document.querySelector("#pizzaSize").innerHTML;
     switch(size) {
       case "1":
-        /*docs.querySelector("#pizzaSize").innerHTML*/docs = "Small";
-        return;
+        /*docs.querySelector("#pizzaSize").innerHTMLdocs = "Small";*/
+        return docs = "Small";
       case "2":
         /*docs.querySelector("#pizzaSize").innerHTML*/docs = "Medium";
         return;
