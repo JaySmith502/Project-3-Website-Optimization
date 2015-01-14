@@ -314,41 +314,43 @@ function randomName() {
   var randomNumberNoun = parseInt(Math.random() * 8 ,10);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
-var pizzaIngredients = {};
+// take out pizzaIngredients altgether and create 
+//var pizzaIngredients = {};
 // These functions return a string of a random ingredient from each respective category of ingredients.
 // seems var calls are unnecessary just to follow right up with return of variable call
 //  moved ingredients into each function to reduce amount of global variables to look back to.
 var selectRandomMeat = function() {
-  pizzaIngredients.meats=["Pepperoni","Sausage","Fennel Sausage","Spicy Sausage","Chicken","BBQ Chicken","Chorizo","Chicken Andouille","Salami","Tofu","Bacon","Canadian Bacon","Proscuitto","Italian Sausage","Ground Beef","Anchovies","Turkey","Ham","Venison","Lamb","Duck","Soylent Green","Carne Asada","Soppressata Picante","Coppa","Pancetta","Bresola","Lox","Guanciale","Chili","Beef Jerky","Pastrami","Kielbasa","Scallops","Filet Mignon"];
-  return pizzaIngredients.meats[Math.floor((Math.random() * 35))];
+  //create new var pizzaMeats to replace global var pizzaIngredients--did this on all selectRandom functions
+  var pizzaMeats = ["Pepperoni","Sausage","Fennel Sausage","Spicy Sausage","Chicken","BBQ Chicken","Chorizo","Chicken Andouille","Salami","Tofu","Bacon","Canadian Bacon","Proscuitto","Italian Sausage","Ground Beef","Anchovies","Turkey","Ham","Venison","Lamb","Duck","Soylent Green","Carne Asada","Soppressata Picante","Coppa","Pancetta","Bresola","Lox","Guanciale","Chili","Beef Jerky","Pastrami","Kielbasa","Scallops","Filet Mignon"];
+  return pizzaMeats[Math.floor((Math.random() * 35))];
   //var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * 35))];
   //return randomMeat;
 };
 
 var selectRandomNonMeat = function() {
-  pizzaIngredients.nonMeats=["White Onions","Red Onions","Sauteed Onions","Green Peppers","Red Peppers","Banana Peppers","Ghost Peppers","Habanero Peppers","Jalapeno Peppers","Stuffed Peppers","Spinach","Tomatoes","Pineapple","Pear Slices","Apple Slices","Mushrooms","Arugula","Basil","Fennel","Rosemary","Cilantro","Avocado","Guacamole","Salsa","Swiss Chard","Kale","Sun Dried Tomatoes","Walnuts","Artichoke","Asparagus","Caramelized Onions","Mango","Garlic","Olives","Cauliflower","Polenta","Fried Egg","Zucchini","Hummus"];
-  return pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
+  var pizzaIngNM = ["White Onions","Red Onions","Sauteed Onions","Green Peppers","Red Peppers","Banana Peppers","Ghost Peppers","Habanero Peppers","Jalapeno Peppers","Stuffed Peppers","Spinach","Tomatoes","Pineapple","Pear Slices","Apple Slices","Mushrooms","Arugula","Basil","Fennel","Rosemary","Cilantro","Avocado","Guacamole","Salsa","Swiss Chard","Kale","Sun Dried Tomatoes","Walnuts","Artichoke","Asparagus","Caramelized Onions","Mango","Garlic","Olives","Cauliflower","Polenta","Fried Egg","Zucchini","Hummus"];
+  return pizzaIngNM[Math.floor((Math.random() * 39))];
   //var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * 39))];
   //return randomNonMeat;
 };
 
 var selectRandomCheese = function() {
-  pizzaIngredients.cheeses=["American Cheese","Swiss Cheese","Goat Cheese","Mozzarella Cheese","Parmesean Cheese","Velveeta Cheese","Gouda Cheese","Muenster Cheese","Applewood Cheese","Asiago Cheese","Bleu Cheese","Boursin Cheese","Brie Cheese","Cheddar Cheese","Chevre Cheese","Havarti Cheese","Jack Cheese","Pepper Jack Cheese","Gruyere Cheese","Limberger Cheese","Manchego Cheese","Marscapone Cheese","Pecorino Cheese","Provolone Cheese","Queso Cheese","Roquefort Cheese","Romano Cheese","Ricotta Cheese","Smoked Gouda"];
-  return pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];  
+  var pizzaCheeses=["American Cheese","Swiss Cheese","Goat Cheese","Mozzarella Cheese","Parmesean Cheese","Velveeta Cheese","Gouda Cheese","Muenster Cheese","Applewood Cheese","Asiago Cheese","Bleu Cheese","Boursin Cheese","Brie Cheese","Cheddar Cheese","Chevre Cheese","Havarti Cheese","Jack Cheese","Pepper Jack Cheese","Gruyere Cheese","Limberger Cheese","Manchego Cheese","Marscapone Cheese","Pecorino Cheese","Provolone Cheese","Queso Cheese","Roquefort Cheese","Romano Cheese","Ricotta Cheese","Smoked Gouda"];
+  return pizzaCheeses[Math.floor((Math.random() * 29))];  
   //var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * 29))];
   //return randomCheese;
 };
 // replaced sauces.length with 5, pretty easy count
 var selectRandomSauce = function() {
-  pizzaIngredients.sauces=["Red Sauce","Marinara","BBQ Sauce","No Sauce","Hot Sauce"];
-  return pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
+  var pizzaSauces=["Red Sauce","Marinara","BBQ Sauce","No Sauce","Hot Sauce"];
+  return pizzaSauces[Math.floor((Math.random() * 5))];
   //var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * 5))];
   //return randomSauce;
 };
 //replaced crusts.length with 4
 var selectRandomCrust = function() {
-  pizzaIngredients.crusts=["White Crust","Whole Wheat Crust","Flatbread Crust","Stuffed Crust"];
-  return pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
+  var pizzaCrusts=["White Crust","Whole Wheat Crust","Flatbread Crust","Stuffed Crust"];
+  return pizzaCrusts[Math.floor((Math.random() * 4))];
   //var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * 4))];
   //return randomCrust;
 };
