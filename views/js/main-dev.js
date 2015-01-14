@@ -576,7 +576,7 @@ function createStartPizzas() {
   var s = 256;
   var move = document.querySelector("#movingPizzas1");
 // moved height and width to style tags on pizza.html, not needed to call from javascript
-  for (var i = 35; i > 35; i--) {
+  for (var i = 0; i < 35; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-tiny.png";
