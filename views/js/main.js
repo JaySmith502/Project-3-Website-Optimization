@@ -383,31 +383,32 @@ var makeRandomPizza = function() {
 
 // returns a DOM element for each pizza
 // added local variable doc, per info found on webreference.com
-// removed universal var names from top of function
+// changed pizzaContainer to pC
+
 var pizzaElementGenerator = function(i) {
   var doc = document;
-  var pizzaContainer,             // contains pizza title, image and list of ingredients
+  var pC,             // contains pizza title, image and list of ingredients
       pizzaImageContainer,        // contains the pizza image
       pizzaImage,                 // the pizza image itself
       pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
       pizzaName,                  // the pizza name itself
       ul;                         // the list of ingredients
 
-  pizzaContainer  = doc.createElement("div");
+  pC  = doc.createElement("div");
   pizzaImageContainer = doc.createElement("div");
   pizzaImage = doc.createElement("img");
   pizzaDescriptionContainer = doc.createElement("div");
 
-  pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "33.33%";
-  pizzaContainer.style.height = "325px";
-  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
+  pC.classList.add("randomPizzaContainer");
+  pC.style.width = "33.33%";
+  pC.style.height = "325px";
+  pC.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
 
   pizzaImage.src = "images/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
-  pizzaContainer.appendChild(pizzaImageContainer);
+  pC.appendChild(pizzaImageContainer);
 
 
   pizzaDescriptionContainer.classList.add("col-md-6");
@@ -419,9 +420,9 @@ var pizzaElementGenerator = function(i) {
   ul = doc.createElement("ul");
   ul.innerHTML = makeRandomPizza();
   pizzaDescriptionContainer.appendChild(ul);
-  pizzaContainer.appendChild(pizzaDescriptionContainer);
+  pC.appendChild(pizzaDescriptionContainer);
 
-  return pizzaContainer;
+  return pC;
 };
 
 //take these DOM callbacks out of the changePizzaSizes function
