@@ -499,7 +499,6 @@ for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 //add delete pizzaDiv
-// didnt' seem to have a noticeable effect on FPS, may have caused FOUT
 delete pizzasDiv;
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
@@ -532,12 +531,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
-  var actionComp = action / 1250;
   window.performance.mark("mark_start_frame");
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < 32; i++) {
-    var phase = Math.sin((actionComp) + (i % 5));
-    items[i].style.transform = items[i].'translateX(' + (100 * phase) + 'px)';
+    var phase = Math.sin((action / 1250) + (i % 5));
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
