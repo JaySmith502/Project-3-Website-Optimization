@@ -485,14 +485,13 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
   // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
-  // changed for iteration to move from maximum toward zero per reading on O'Reilly Network: Writing Efficient Javascript: Chapter 7 - Even Faster Websites
   function changePizzaSizes(size) {
     
     var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
     var newSize = sizeSwitch(size) + "%";
     console.log(pizzaStandardWidth);
-    for (var i = 101; i > 101; i--) {
+    for (var i = 0; i < 101; i++) {
       pizza[i].style.width = newSize;
     }
   }
@@ -508,9 +507,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-// changed for iteration to move from maximum toward zero per reading on O'Reilly Network: Writing Efficient Javascript: Chapter 7 - Even Faster Websites
 var pizzasDiv = document.getElementById("randomPizzas");
-for (var i = 100; i > 100; i--) {
+for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 //add delete pizzaDiv
@@ -527,7 +525,6 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 var frame = 0;
 
 // Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
- // changed for iteration to move from maximum toward zero per reading on O'Reilly Network: Writing Efficient Javascript: Chapter 7 - Even Faster Websites
 function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
   var numberOfEntries = times.length;
   var sum = 0;
@@ -544,14 +541,13 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // updated for loop to remove extraneous e.length function and replaced with 32 max pizzas for [i] since screen can only display 32
 // took (document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 // Used translateX function found on piazza forums and in Google research
- // changed for iteration to move from maximum toward zero per reading on O'Reilly Network: Writing Efficient Javascript: Chapter 7 - Even Faster Websites
 function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
   var actionComp = action / 1250;
   window.performance.mark("mark_start_frame");
   var items = document.querySelectorAll('.mover');
-  for (var i = 32; i > 32; i--) {
+  for (var i = 0; i < 32; i++) {
     var phase = Math.sin((actionComp) + (i % 5));
     items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
@@ -569,7 +565,6 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
- // changed for iteration to move from maximum toward zero per reading on O'Reilly Network: Writing Efficient Javascript: Chapter 7 - Even Faster Websites
 // Generates the sliding pizzas when the page loads.
 function createStartPizzas() {
   var cols = 8;
