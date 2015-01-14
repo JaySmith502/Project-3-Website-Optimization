@@ -461,11 +461,11 @@ var resizePizzas = function(size) {
   function sizeSwitch (size) {
     switch(size) {
       case "1":
-        return "25%";
+        return "25";
       case "2":
-        return "33.33%";
+        return "33.33";
       case "3":
-        return "50%";
+        return "50";
        default:
         console.log("bug in sizeSwitcher");
      }
@@ -475,13 +475,18 @@ var resizePizzas = function(size) {
   // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
   // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
   function changePizzaSizes(size) {
+     var randPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
+     var dx = determineDx(randPizzaContainers[3], size);
+     var newwidth = (randPizzaContainers[3].offsetWidth + dx) + 'px';
+     for (var i = 0; i < randPizzaContainers.length; i++) {
+       randPizzaContainers[i].style.width = newwidth;
     
-    var pizza = document.querySelectorAll(".randomPizzaContainer");
+    /*var pizza = document.querySelectorAll(".randomPizzaContainer");
     //var pizzaLength = pizza.length;
     var newSize = sizeSwitch(size);// + "%";
     console.log(pizzaStandardWidth);
     for (var i = 0; i < 101; i++) {
-      pizza[i].style.width = newSize;
+      pizza[i].style.width = newSize;*/
     }
   }
 
