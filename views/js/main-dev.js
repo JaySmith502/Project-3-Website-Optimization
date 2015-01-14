@@ -533,7 +533,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   }
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
-
+/*
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 var latestKnownScrollY = 0;
@@ -616,12 +616,12 @@ document.addEventListener('DOMContentLoaded', function() {
   //  updatePositions();
   // ticking = true;
   requestAnimationFrame(updatePositions);
-});
+});*/
 // Moves the sliding background pizzas based on scroll position
 // updated for loop to remove extraneous e.length function and replaced with 32 max pizzas for [i] since screen can only display 32
 // took (document.body.scrollTop) out of for Loop to remove constant reiteration since it's only necessary to call once and can be recalled as a variable
 // Used translateX function found on piazza forums and in Google research
-/*function updatePositions() {
+  function updatePositions() {
   frame++;
   var action = document.body.scrollTop;
   var actionComp = action / 1250;
