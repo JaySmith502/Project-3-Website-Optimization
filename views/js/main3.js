@@ -3,6 +3,7 @@ Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
+page reflow & painting 
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
@@ -145,11 +146,7 @@ String.prototype.capitalize = function() {
 };
 
 // Pulls adjective out of array using random number sent from generator
-// took out redundant var scientific array
 function getAdj(x){
-      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
-      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
   switch(x) {
     case "dark": 
       var dark = ["dark","morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted", 
@@ -200,19 +197,20 @@ function getAdj(x){
       "majestic", "grand", "stunning"];
       return praise;
     case "scientific":
+      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
+      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
+      "extinct", "galactic"]
       return scientific;
     default:
+      var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
+      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
+      "extinct", "galactic"]
       return scientific;
   };
 };
 
 // Pulls noun out of array using random number sent from generator
-// took out redundant scifi array
 function getNoun(y) {
-      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
-      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
   switch(y) {
     case "animals": 
       var animals = ["flamingo", "hedgehog", "owl", "elephant", "pussycat", "alligator", "dachsund", "poodle", "beagle", "crocodile", "kangaroo", 
@@ -267,8 +265,16 @@ function getNoun(y) {
       "shop", "store", "theater", "garden", "canyon", "highway", "restaurant", "cafe", "diner", "street", "road", "freeway", "alley"];
       return places;
     case "scifi":
+      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
+      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
+      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
+      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
     default:
+      var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy", 
+      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
+      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
+      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
   }; 
 };
@@ -389,9 +395,10 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 }
 
-var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
-var pizzaStandardWidth = randomPizzaContainer[0].style.width;
-var randomPizzaContainerLength = randomPizzaContainer.length;
+
+// These will be initialized below after the random pizzas are generated
+var randomPizzaContainers = null;
+var windowwidth = null;
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
@@ -417,27 +424,38 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function sizeSwitcher (size) {
-    switch(size) {
-      case "1":
-        return 25;
-      case "2":
-        return 33.33;
-      case "3":
-        return 50;
-      default:
-        console.log("bug in sizeSwitcher");
+  function determineDx (elem, size, windowwidth) {
+    var oldwidth = elem.offsetWidth;
+    var oldsize = oldwidth / windowwidth;
+
+    // TODO: change to 3 sizes? no more xl?
+    // Changes the slider value to a percent width
+    function sizeSwitcher (size) {
+      switch(size) {
+        case "1":
+          return 0.25;
+        case "2":
+          return 0.3333;
+        case "3":
+          return 0.5;
+        default:
+          console.log("bug in sizeSwitcher");
+      }
     }
+
+    var newsize = sizeSwitcher(size);
+    var dx = (newsize - oldsize) * windowwidth;
+
+    return dx;
   }
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var pizza;
-    var newSize = sizeSwitcher(size) + "%";
-    console.log(pizzaStandardWidth);
-    for (var i = 0; i < randomPizzaContainerLength; i++) {
-      pizza = document.querySelectorAll(".randomPizzaContainer")[i];
-      pizza.style.width = newSize;
+    // Get all randomPizzaContainers and the window width outside of the loop because 
+    // they are the same for each iteration of the loop
+    for (var i = 0; i < randomPizzaContainers.length; i++) {
+      var dx = determineDx(randomPizzaContainers[i], size, windowwidth);
+      randomPizzaContainers[i].style.width = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
     }
   }
 
@@ -452,11 +470,17 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
+
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
+
+randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+
+
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
@@ -483,13 +507,23 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
+  //log only
   frame++;
   window.performance.mark("mark_start_frame");
+  //end log only
 
   var items = document.querySelectorAll('.mover');
+  var cachedScrollTop=document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    
+
+
+ 
+
+    // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
