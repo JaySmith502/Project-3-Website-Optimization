@@ -457,6 +457,7 @@ var resizePizzas = function(size) {
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   // removed determineDx functionality out, not necessary due to use of sizeSwitch, lost a complete function callback, as found on Piazza and JSLint
+  // Why do we not start with 100%, seems it would save some render/paint?
   function sizeSwitch (size) {
     switch(size) {
       case "1":
@@ -464,7 +465,7 @@ var resizePizzas = function(size) {
       case "2":
         return "33.33%";
       case "3":
-        return "50%";
+        return "100%";
        default:
         console.log("bug in sizeSwitcher");
      }
