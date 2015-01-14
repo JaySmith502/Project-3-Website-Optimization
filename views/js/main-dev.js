@@ -574,7 +574,7 @@ function createStartPizzas() {
   for (var i = 0; i < 35; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/pizza-tiny.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.style.left = (i % cols) * s + 'px';
