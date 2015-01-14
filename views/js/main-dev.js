@@ -581,7 +581,7 @@ function createStartPizzas() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     move.appendChild(elem);
   }
-  updatePositions();
+  //updatePositions();
 }
 
 if (document.readystate != "loading") {
