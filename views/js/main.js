@@ -465,7 +465,7 @@ var resizePizzas = function(size) {
       case "2":
         return "33.33%";
       case "3":
-        return "50%";
+        return "100%";
        default:
         console.log("bug in sizeSwitcher");
      }
@@ -496,16 +496,13 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-added function to pizzasDiv to take it out of the global variable searchable loop
-function creator() {
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 //add delete pizzaDiv
 delete pizzasDiv;
-};
-creator();
+
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
 window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
