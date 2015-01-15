@@ -1,0 +1,45 @@
+Resources and Reflections on Udacity Nanodegree Cohort 1 Project 4
+==================================================================
+
+This was by far the most difficult and time-consuming project to date for the Nanodegree program.  Unlike previous projects, my previous knowledge of HTML and CSS wasn't very helpful in optimizing these
+pages.  I did learn quite a bit as I was forced to revisit many resources, all of which are noted below.  I also was very fortunate to have the Piazza and Hipchat resources, I wouldn't have been able to
+complete this project without the help of the Cohort.
+
+I was able to quickly get all five webpages to above 90 on Page Speed Insights using the following methods:
+
+1)	Inline css and remove reference to exterior style sheet.
+2)	Optimizing images using tinypng.com and kraken.io.
+	-I tried Smush.it as some on Piazza suggested but I found the interface less than ideal, probably just a personal taste matter.
+3)	Adding height and width attributes to images as suggested by the PageSpeed Web App on my Chromebook.
+4)	Moved all scripts and calls to footer, added async attributes.
+5)  Extracted media queries from CSS file and added media = "print" to href calls.
+6)  Minified source page files using http://willpeavey.com/minifier for html, http://cssminifier.com for css, and http://javascript-minifier.com for js files.
+7)	Specific page optimizations:
+	-Index.HTML
+		Used @import call to maximize optimization of web font vs. importing font in header.
+		created individual pizzeria-hp.jpg file to optimize size for home page rather than change sizes for home page vs. pizza.html.
+	-Project-2048.html ("Build your own 2048!")
+		No specific optimizations outside of those above.
+	-Project-webperf.html ("Website Performance Optimization")
+		No specific optimizations outside of those above.
+	-Project-mobile.html
+		No specific optimizations outside of those above.
+	-Pizza.html
+		No specific optimizations outside of those above (TO SPECIFICALLY GET TO >90 ON PAGESPEED INSIGHTS, FPS RENDERING DISCUSSED IN NEXT SECTION).
+
+RESOURCES USED IN OPTIMIZING PROJECT 4 SPECIFICALLY IN REGARDS TO PAGE SPEED INSIGHTS SCORE:
+
+1)  http://ctrlq.org/beautifier
+2)  YSLOW.org
+3)	http://willpeavey.com/minifier
+4)	http://cssminifier.com
+5)	http://javascript-minifier.com
+6)	https://kraken.io/web-interface
+7)	https://tinypng.com
+8)	Google Developer Tools
+9)	jankfree.org
+10)	http://www.smushit.com/ysmush.it---was tried but didn't stick with image optimizations this tool provided
+11)	http://udacity.github.io/frontend-nanodegree-styleguide/index.html
+
+I was feeling pretty confident after quickly discerning how to achieve 90+ on Page Speed Insights, I actually thought it was rather easy and wasn't sure why people on Piazza who were ahead of me seemed to
+be struggling with Project 4 and spending so much time discussing it and pointing to other resources.  I was soon to learn.
