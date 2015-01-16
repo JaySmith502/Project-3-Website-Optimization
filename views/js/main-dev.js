@@ -332,7 +332,7 @@ var pizzaStandardWidth = randomPizzaContainer[0].style.width;
 var randomPizzaContainerLength = randomPizzaContainer.length;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
-    //window.performance.mark("mark_start_resize"); // User Timing API function
+    window.performance.mark("mark_start_resize"); // User Timing API function
 
     // Changes the value for the size of the pizza above the slider
     // created local variable for document.querySelector(#pizzaSize).innerHTML;
@@ -381,7 +381,7 @@ var resizePizzas = function(size) {
         var newSize = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
-            pizza[i].style.width = sizeSwitch(size) + "%";
+            pizza[i].style.width = newSize;
         }
     }
 
