@@ -325,7 +325,11 @@ var pizzaElementGenerator = function(i) {
     return pC;
 };
 
+//take these DOM callbacks out of the changePizzaSizes function
 
+var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+var pizzaStandardWidth = randomPizzaContainer[0].style.width;
+var randomPizzaContainerLength = randomPizzaContainer.length;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
@@ -351,42 +355,35 @@ var resizePizzas = function(size) {
 
     changeSliderLabel(size);
 
-   function determineDx (elem, size) {
-    var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldsize = oldwidth / windowwidth;
-
-    // TODO: change to 3 sizes? no more xl?
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
+    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+    // removed determineDx functionality out, not necessary due to use of sizeSwitch, lost a complete function callback, as found on Piazza and JSLint
+    // Why do we not start with 100%, seems it would save some render/paint?
+    function sizeSwitch(size) {
+        switch (size) {
+            case "1":
+                return 25;
+            case "2":
+                return 33.33;
+            case "3":
+                return 50;
+            default:
+                console.log("bug in sizeSwitcher");
+        }
     }
 
-    var newsize = sizeSwitcher(size);
-    var dx = (newsize - oldsize) * windowwidth;
+    // Iterates through pizza elements on the page and changes their widths
+    // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
+    // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
+    function changePizzaSizes(size) {
 
-    return dx;
-  }
-
-  // Iterates through pizza elements on the page and changes their widths
-  // remove .length function from for loop
-  function changePizzaSizes(size) {
-    var len=document.querySelectorAll(".randomPizzaContainer").length;
-    for (var i = 0,  i < len; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+        var pizza = document.querySelectorAll(".randomPizzaContainer");
+        //var pizzaLength = pizza.length;
+        var newSize = sizeSwitch(size) + "%";
+        console.log(pizzaStandardWidth);
+        for (var i = 0; i < 101; i++) {
+            pizza[i].style.width = newSize;
+        }
     }
-  }
 
     changePizzaSizes(size);
     // User Timing API is awesome
