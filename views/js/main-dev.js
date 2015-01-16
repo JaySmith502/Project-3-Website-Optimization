@@ -381,7 +381,7 @@ var resizePizzas = function(size) {
         var newSize = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
-            pizza[i].style.width = newSize;
+            pizza[i].style.width = sizeSwitch(size) + "%";
         }
     }
 
