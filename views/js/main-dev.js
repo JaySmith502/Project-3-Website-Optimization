@@ -378,11 +378,12 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  // remove DOM lookups
   function changePizzaSizes(size) {
-    // P4 - BLG - cached max value for loop (change 01)
-    for (var i = 0, len=document.querySelectorAll(".randomPizzaContainer").length; i < len; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    var len=document.querySelectorAll(".randomPizzaContainer").length;
+    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    for (var i = 0,  i < len; i++) {
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
