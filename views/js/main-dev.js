@@ -378,11 +378,11 @@ var resizePizzas = function(size) {
 
 
         //var pizzaLength = pizza.length;
-        var newWidth = sizeSwitch(size) + "%";
+        var newwidth = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
             var pizza = document.querySelectorAll(".randomPizzaContainer");
-            pizza[i].style.width = newWidth;
+            pizza[i].style.width = newwidth;
         }
     }
 
