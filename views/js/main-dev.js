@@ -356,7 +356,7 @@ var resizePizzas = function(size) {
     changeSliderLabel(size);
 
     // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-    // removed determineDx functionality out, not necessary due to use of sizeSwitcher, lost a complete function callback, as found on Piazza and JSLint
+    // removed determineDx functionality out, not necessary due to use of sizeSwitch, lost a complete function callback, as found on Piazza and JSLint
     // Why do we not start with 100%, seems it would save some render/paint?
     function sizeSwitcher(size) {
         switch (size) {
@@ -375,13 +375,12 @@ var resizePizzas = function(size) {
     // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
     // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
     function changePizzaSizes(size) {
-
-
+        var pizza = document.querySelectorAll(".randomPizzaContainer");
         //var pizzaLength = pizza.length;
-        var newwidth = sizeSwitcher(size) + "%";
+        var newwidth = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
-            var pizza = document.querySelectorAll(".randomPizzaContainer");
+
             pizza[i].style.width = newwidth;
         }
     }
