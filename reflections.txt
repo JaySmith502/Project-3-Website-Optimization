@@ -40,6 +40,8 @@ RESOURCES USED IN OPTIMIZING PROJECT 4 SPECIFICALLY IN REGARDS TO PAGE SPEED INS
 9)	jankfree.org
 10)	http://www.smushit.com/ysmush.it---was tried but didn't stick with image optimizations this tool provided
 11)	http://udacity.github.io/frontend-nanodegree-styleguide/index.html
+12)	http://stackoverflow.com/questions/14676613/how-to-import-google-web-font-in-css-file (for how to optimize font loading)
+13)	https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
 
 I was feeling pretty confident after quickly discerning how to achieve 90+ on Page Speed Insights, I actually thought it was rather easy and wasn't sure why people on Piazza who were ahead of me seemed to
 be struggling with Project 4 and spending so much time discussing it and pointing to other resources.  I was soon to learn.

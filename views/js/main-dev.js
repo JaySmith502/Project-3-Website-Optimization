@@ -203,7 +203,7 @@ function randomName() {
         var randomNumberNoun = parseInt(Math.random() * 8, 10);
         return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
     }
-    // take out pizzaIngredients altgether and create 
+    // take out pizzaIngredients altgether and create
     //var pizzaIngredients = {};
     // These functions return a string of a random ingredient from each respective category of ingredients.
     // seems var calls are unnecessary just to follow right up with return of variable call
@@ -325,11 +325,7 @@ var pizzaElementGenerator = function(i) {
     return pC;
 };
 
-//take these DOM callbacks out of the changePizzaSizes function
 
-var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
-var pizzaStandardWidth = randomPizzaContainer[0].style.width;
-var randomPizzaContainerLength = randomPizzaContainer.length;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
@@ -361,11 +357,11 @@ var resizePizzas = function(size) {
     function sizeSwitch(size) {
         switch (size) {
             case "1":
-                return 25;
+                return .25;
             case "2":
-                return 33.33;
+                return .3333;
             case "3":
-                return 50;
+                return .50;
             default:
                 console.log("bug in sizeSwitcher");
         }
@@ -376,9 +372,12 @@ var resizePizzas = function(size) {
     // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
     function changePizzaSizes(size) {
 
+    var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+    var pizzaStandardWidth = randomPizzaContainer[0].style.width;
+    var randomPizzaContainerLength = randomPizzaContainer.length;
         var pizza = document.querySelectorAll(".randomPizzaContainer");
         //var pizzaLength = pizza.length;
-        var newSize = sizeSwitch(size) + "%";
+        var newSize = sizeSwitch(size);// + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
             pizza[i].style.width = newSize;
