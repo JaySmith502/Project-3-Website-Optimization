@@ -376,11 +376,12 @@ var resizePizzas = function(size) {
     // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
     function changePizzaSizes(size) {
 
-        var pizza = document.querySelectorAll(".randomPizzaContainer");
+
         //var pizzaLength = pizza.length;
         var newSize = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
         for (var i = 0; i < 101; i++) {
+            var pizza = document.querySelectorAll(".randomPizzaContainer");
             pizza[i].style.width = newSize;
         }
     }
