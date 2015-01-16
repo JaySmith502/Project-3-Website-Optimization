@@ -375,7 +375,9 @@ var resizePizzas = function(size) {
     // took pizzaLength callback out of the equation by assigning 101 (max 100 pizzas)
     // took document.querySelectorAll(".randomPizzaContainer") out of changePizzaSizes f(x)
     function changePizzaSizes(size) {
-
+        var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+        var pizzaStandardWidth = randomPizzaContainer[0].style.width;
+        var randomPizzaContainerLength = randomPizzaContainer.length;
         var pizza = document.querySelectorAll(".randomPizzaContainer");
         //var pizzaLength = pizza.length;
         var newSize = sizeSwitch(size) + "%";
