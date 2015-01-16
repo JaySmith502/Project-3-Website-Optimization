@@ -43,5 +43,28 @@ RESOURCES USED IN OPTIMIZING PROJECT 4 SPECIFICALLY IN REGARDS TO PAGE SPEED INS
 12)	http://stackoverflow.com/questions/14676613/how-to-import-google-web-font-in-css-file (for how to optimize font loading)
 13)	https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
 
+RESOURCES USED IN OPTIMIZING PIZZA.HTML TO ACHIEVE > 60 FPS USING THE TIMELINE IN DEVELOPER TOOLS
+
 I was feeling pretty confident after quickly discerning how to achieve 90+ on Page Speed Insights, I actually thought it was rather easy and wasn't sure why people on Piazza who were ahead of me seemed to
-be struggling with Project 4 and spending so much time discussing it and pointing to other resources.  I was soon to learn.
+be struggling with Project 4 and spending so much time discussing it and pointing to other resources.  I was soon to learn my arrogance was unfounded.  I'm estimating I spent about 85 hours on this particular project over the course of 4 weeks.  Here is a list of resources I used to help me get it to submission (in addition to those already noted above for Page Speed Insights).
+
+1)	https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model
+2)	http://engineering.wingify.com/posts/getting-60fps-using-devtools/
+3)	http://www.webreference.com/programming/javascript/jkm3/index.html -- EXCELLENT RESOURCE!
+4)	http://archive.oreilly.com/pub/a/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html -- ANOTHER EXCELLENT RESOURCE!
+5)	http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html
+6)	http://davidwalsh.name/translate3d
+7)	http://www.html5rocks.com/en/tutorials/speed/animations/
+8)	http://www.html5rocks.com/en/tutorials/speed/scrolling/
+9)	http://addyosmani.com/blog/performance-optimisation-with-timeline-profiles/
+10)	https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery#CSSattributes
+11)	Google On Air Hangouts by Udacity
+12)	https://www.youtube.com/watch?v=YyQYhhy1dZI -- AWESOME HOUR LONG SEMINAR BY NAT DUCA AND TOM WILTZIUS OF GOOGLE ABOUT OPTIMIZATION AND JANK.
+13)	http://stackoverflow.com/questions/27392133/in-the-dev-tools-timeline-what-are-the-empty-green-rectangles/27426601#27426601
+14)	http://css-tricks.com/snippets/css/basics-of-google-font-api/
+
+This is not an exhaustive list, I also relied on help from other cohort 1 students on Piazza and HipChat as well as Google for finding the best image optimization tool among other logistical questions.
+
+Refer to the README.txt file for instructions on how to view pages.
+
+Thanks
