@@ -380,10 +380,8 @@ var resizePizzas = function(size) {
         var pizzaLength = pizza.length;
         var newSize = sizeSwitch(size) + "%";
         console.log(pizzaStandardWidth);
-        //for (var i = 0; i < pizzaLength; i++) {
-        for (var i = 0, m = pizzaContainers.length; i < m; i++) {
+        for (var i = 0; i < pizzaLength; i++) {
             pizza[i].style.width = newSize;
-        }
         }
     }
 
