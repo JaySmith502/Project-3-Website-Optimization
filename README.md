@@ -4,7 +4,40 @@
 
 <h2><bold>https://smith1jason.github.io</bold></h2>
 
-Which will take you to Cameron's Home Page.
-=====================
+<h4>This will take you to the optimized version of Cameron's Home Page.</h4>
 
+Each page can be checked for proper Page Speed Insights scores at:
 
+https://developers.google.com/speed/pagespeed/insights/
+
+Input each of the following URL's in PSI to see the subsequent scores:
+
+http://smith1jason.github.io/
+  <b font-color: green>Mobile 95/100
+  Desktop 97/100</b></font-color>
+  
+http://smith1jason.github.io/project-2048.html
+  <b font-color: green>Mobile 93/100
+  Desktop 94/100</b></font-color>
+  
+http://smith1jason.github.io/project-webperf.html
+  <b font-color: green>Mobile 94/100
+  Desktop 96/100
+  
+http://smith1jason.github.io/project-mobile.html
+  <b font-color: green>Mobile 94/100
+  Desktop 97/100</b></font-color>
+  
+http://smith1jason.github.io/views/pizza.html
+  <b font-color: green>Mobile 96/100
+  Desktop 96/100
+  
+To test pizza.html for 60 FPS, go to:
+
+http://smith1jason.github.io/views/pizza.html
+
+and use the Timeline in Developer Tools to view the optimized results.
+
+Each page in the project is minified, each page has a -dev (developer) version available here on Github 
+to make it easier for Udacity reviewer to view optimizations.  Pizza-dev.html and main-dev.js have extensive comments
+in the code for the reviewer.
