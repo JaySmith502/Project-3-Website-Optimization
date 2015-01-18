@@ -1,4 +1,4 @@
-<h1>**UDACITY NANODEGREE PROJECT 4**</h1>
+<h1><bold>UDACITY NANODEGREE PROJECT 4</bold></h1>
 
 To view optimized pages visit:
 
