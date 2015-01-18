@@ -12,25 +12,29 @@ https://developers.google.com/speed/pagespeed/insights/
 
 Input each of the following URL's in PSI to see the subsequent scores:
 
-http://smith1jason.github.io/
+https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io
   <b font-color: green>Mobile 95/100
   Desktop 97/100</b></font-color>
   
-http://smith1jason.github.io/project-2048.html
-  <b font-color: green>Mobile 93/100
-  Desktop 94/100</b></font-color>
+https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io%2Fproject-2048.html
   
-http://smith1jason.github.io/project-webperf.html
-  <b font-color: green>Mobile 94/100
+  <b>Mobile 93/100
+  Desktop 94/100</b>
+  
+https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io%2Fproject-webperf.html
+
+  <b>Mobile 94/100
   Desktop 96/100
   
-http://smith1jason.github.io/project-mobile.html
-  <b font-color: green>Mobile 94/100
-  Desktop 97/100</b></font-color>
+https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io%2Fproject-mobile.html
+
+  <b>Mobile 94/100
+  Desktop 97/100</b>
   
-http://smith1jason.github.io/views/pizza.html
-  <b font-color: green>Mobile 96/100
-  Desktop 96/100
+https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io%2Fviews%2Fpizza.html
+
+  <b>Mobile 96/100
+  Desktop 96/100</b>
   
 To test pizza.html for 60 FPS, go to:
 
@@ -41,3 +45,6 @@ and use the Timeline in Developer Tools to view the optimized results.
 Each page in the project is minified, each page has a -dev (developer) version available here on Github 
 to make it easier for Udacity reviewer to view optimizations.  Pizza-dev.html and main-dev.js have extensive comments
 in the code for the reviewer.
+
+Thanks.
+===============================================
