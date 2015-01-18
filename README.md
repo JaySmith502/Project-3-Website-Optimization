@@ -13,8 +13,9 @@ https://developers.google.com/speed/pagespeed/insights/
 Input each of the following URL's in PSI to see the subsequent scores:
 
 https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io
-  <b font-color: green>Mobile 95/100
-  Desktop 97/100</b></font-color>
+
+  <b>Mobile 95/100
+  Desktop 97/100</b>
   
 https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsmith1jason.github.io%2Fproject-2048.html
   
