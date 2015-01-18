@@ -12,8 +12,8 @@ I was able to quickly get all five webpages to above 90 on Page Speed Insights u
 	-I tried Smush.it as some on Piazza suggested but I found the interface less than ideal, probably just a personal taste matter.
 3)	Adding height and width attributes to images as suggested by the PageSpeed Web App on my Chromebook.
 4)	Moved all scripts and calls to footer, added async attributes.
-5)  Extracted media queries from CSS file and added media = "print" to href calls.
-6)  Minified source page files using http://willpeavey.com/minifier for html, http://cssminifier.com for css, and http://javascript-minifier.com for js files.
+5)      Extracted media queries from CSS file and added media = "print" to href calls.
+6)      Minified source page files using http://willpeavey.com/minifier for html, http://cssminifier.com for css, and http://javascript-minifier.com for js files.
 7)	Specific page optimizations:
 	-Index.HTML
 		Used @import call to maximize optimization of web font vs. importing font in header.
