@@ -1,6 +1,7 @@
 //HOLD THIS CODE 01/11/15 9AM
 //HOLD THIS CODE 01/11/15 2PM
 //HOLD THIS CODE 01/14/15 12PM
+//FINAL SUBMITTED 01/18/15 2PM
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
